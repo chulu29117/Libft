@@ -6,7 +6,7 @@
 #    By: clu <clu@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 15:08:55 by clu               #+#    #+#              #
-#    Updated: 2024/10/29 15:40:23 by clu              ###   ########.fr        #
+#    Updated: 2024/10/30 14:25:56 by clu              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CFLAGS = -Wall -Werror -Wextra
 SRC_DIR = srcs
 INC_DIR = includes
 
-SRC_FILES = ft_isalpha.c ft_isdigit.c ft_isalnum.c
+SRC_FILES = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+ft_strlen.c ft_memset.c ft_strchr.c ft_strrchr.c 
 
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
