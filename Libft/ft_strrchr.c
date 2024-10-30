@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clu <clu@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:16:34 by clu               #+#    #+#             */
-/*   Updated: 2024/10/30 14:36:29 by clu              ###   ########.fr       */
+/*   Updated: 2024/10/30 15:04:16 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int		i;
 	char	*last_occurrence;
 
 	i = 0;
@@ -27,5 +27,5 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	if (s[i] == c)
 		last_occurrence = (char *) & s[i];
-	return last_occurrence;
+	return (last_occurrence);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clu <clu@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 09:51:49 by clu               #+#    #+#             */
-/*   Updated: 2024/10/30 14:36:50 by clu              ###   ########.fr       */
+/*   Updated: 2024/10/30 15:18:53 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,31 @@
 // }
 
 // Test for ft_strrchr
-int	main(void)
-{
-	char *string = "Hello, World!";
-	char *result;
-	result = ft_strrchr(string, 'o');
-	printf("String after |%c| is - |%s|\n", 'o', result);
-	return (0);
-}
+// int	main(void)
+// {
+// 	char	*string = "Hello, World!";
+// 	char	*result;
+// 	result = ft_strrchr(string, 'o');
+// 	printf("String after |%c| is - |%s|\n", 'o', result);
+// 	return (0);
+// }
 
-// Test for ft_strstr
+// Test for ft_strnstr
+int main(void)
+{
+    char	*str = "Hello, World!";
+    char	*to_find = "llo";
+    int	len = 8;
+    char	*result;
+
+    result = ft_strnstr(str, to_find, len);
+    if (result != NULL)
+    {
+        printf("To_find found at index: %ld\n", result - str);
+    }
+    else
+    {
+        printf("To_find not found\n");
+    }
+    return 0;
+}
