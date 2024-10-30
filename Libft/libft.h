@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 15:03:13 by clu               #+#    #+#             */
-/*   Updated: 2024/10/30 15:11:36 by clu              ###   ########.fr       */
+/*   Updated: 2024/10/30 16:24:01 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 # define LIBFT_H
 
 typedef unsigned long	t_size_t;
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-int		ft_strlen(char *str);
-void	*ft_memset(void *s, int c, t_size_t n);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strrchr(const char *s, int c);
-char	*ft_strnstr(const char *str, const char *to_find, t_size_t len);
+int			ft_isalpha(int c);
+int			ft_isdigit(int c);
+int			ft_isalnum(int c);
+int			ft_isascii(int c);
+int			ft_isprint(int c);
+int			ft_strlen(char *str);
+void		*ft_memset(void *s, int c, t_size_t n);
+char		*ft_strchr(const char *s, int c);
+char		*ft_strrchr(const char *s, int c);
+char		*ft_strnstr(const char *str, const char *to_find, t_size_t len);
+t_size_t	ft_strlcpy(char *dest, const char *src, t_size_t size);
+t_size_t	ft_strlcat(char *dest, const char *src, t_size_t size);
 
 #endif

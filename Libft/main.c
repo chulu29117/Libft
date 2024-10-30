@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 09:51:49 by clu               #+#    #+#             */
-/*   Updated: 2024/10/30 15:18:53 by clu              ###   ########.fr       */
+/*   Updated: 2024/10/30 16:26:35 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,21 +103,27 @@
 // }
 
 // Test for ft_strnstr
-int main(void)
-{
-    char	*str = "Hello, World!";
-    char	*to_find = "llo";
-    int	len = 8;
-    char	*result;
+// int	main(void)
+// {
+// 	char	src[20] = "Hello, World!";
+// 	char	dest[10];
+// 	t_size_t	result;
 
-    result = ft_strnstr(str, to_find, len);
-    if (result != NULL)
-    {
-        printf("To_find found at index: %ld\n", result - str);
-    }
-    else
-    {
-        printf("To_find not found\n");
-    }
-    return 0;
+// 	result = ft_strlcpy(dest, src, 8);
+// 	printf("Source string: %s\n", src);
+// 	printf("Destination string: %s\n", dest);
+// 	printf("Result: %ld\n", result);
+// 	return (0);
+// }
+
+// Test for ft_strlcat
+int	main(void)
+{
+	char	dest[] = "Hello";
+	char	src[] = "Good Morning World";
+	
+	printf("src: %s dest: %s\n", src, dest);
+	printf("Dest with size n: %ld\n", ft_strlcat(dest, src, 3));
+	printf("dest: %s\n", dest);
+	return (0);
 }
