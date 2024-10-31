@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 16:01:59 by clu               #+#    #+#             */
-/*   Updated: 2024/10/31 10:55:16 by clu              ###   ########.fr       */
+/*   Created: 2024/10/31 11:20:14 by clu               #+#    #+#             */
+/*   Updated: 2024/10/31 11:20:34 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_size_t	ft_strlcat(char *dest, const char *src, t_size_t size)
+void	*ft_memcpy(void *dest, const void *src, t_size_t n)
 {
 	t_size_t	i;
-	t_size_t	j;
-	t_size_t	dest_len;
-	t_size_t	src_len;
+	char		*ptr_dest;
+	char		*ptr_src;
 
-	dest_len = 0;
-	while (dest[dest_len] != '\0')
-		dest_len++;
-	src_len = 0;
-	while (src[src_len] != '\0')
-		src_len++;
-	if (size <= dest_len)
-		return (size + src_len);
-	i = dest_len;
-	j = 0;
-	while ((src[j] != '\0') && (i <= size -1))
+	i = 0;
+	ptr_dest = (char *)dest;
+	ptr_src = (char *)src;
+	while (i < n)
 	{
-		dest[i] = src[j];
+		ptr_dest[i] = ptr_src[i];
 		i++;
-		j++;
 	}
-	dest[i] = '\0';
-	return (i + size);
+	return (dest);
 }

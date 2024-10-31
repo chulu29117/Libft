@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 09:51:49 by clu               #+#    #+#             */
-/*   Updated: 2024/10/30 16:26:35 by clu              ###   ########.fr       */
+/*   Updated: 2024/10/31 11:09:25 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,13 +117,36 @@
 // }
 
 // Test for ft_strlcat
-int	main(void)
-{
-	char	dest[] = "Hello";
-	char	src[] = "Good Morning World";
-	
-	printf("src: %s dest: %s\n", src, dest);
-	printf("Dest with size n: %ld\n", ft_strlcat(dest, src, 3));
-	printf("dest: %s\n", dest);
-	return (0);
-}
+// int	main(void)
+// {
+// 	char	dest[] = "Hello";
+// 	char	src[] = "Good Morning World";
+
+// 	printf("src: %s dest: %s\n", src, dest);
+// 	printf("Dest with size n: %ld\n", ft_strlcat(dest, src, 3));
+// 	printf("dest: %s\n", dest);
+// 	return (0);
+// }
+
+// Test for ft_bzero
+// int	main(void) 
+// {
+// 	char buffer[10];
+// 	t_size_t i;
+// 	// Fill buffer with non-zero values using a while loop
+// 	i = 0;
+// 	while (i < 10) {
+// 		buffer[i] = 'A';
+// 		i++;
+// 	}
+// 	// Zero out the buffer using ft_bzero
+// 	ft_bzero(buffer, 10);
+// 	// Print the buffer contents using a while loop
+// 	i = 0;
+// 	while (i < 10) {
+// 		printf("%d ", buffer[i]); // Output: 0 0 0 0 0 0 0 0 0 0
+// 		i++;
+// 	}
+// 	printf("\n");
+// 	return (0);
+// }
