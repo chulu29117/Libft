@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 09:51:49 by clu               #+#    #+#             */
-/*   Updated: 2024/10/31 14:32:29 by clu              ###   ########.fr       */
+/*   Updated: 2024/10/31 14:49:14 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,14 +222,36 @@
 // }
 
 // Test for ft_memchr
+// int	main(void)
+// {
+// 	char		*str = "Hello, World!";
+// 	char		*result;
+// 	int			c = 'W';
+// 	t_size_t	n = 13;
+
+// 	result = ft_memchr(str, c, n);
+// 	printf("String after %c is - %s\n", c, result);
+// 	return (0);
+// }
+
+// Test for ft_memcmp
+// int	main(void)
+// {
+// 	char		*str1 = "Hello, World!";
+// 	char		*str2 = "World!";
+// 	t_size_t	n = 13;
+
+// 	printf("ft_memcmp: %d\n", ft_memcmp(str1, str2, n));
+// 	return (0);
+// }
+
+// Test for ft_atoi
 int	main(void)
 {
-	char		*str = "Hello, World!";
-	char		*result;
-	int			c = 'W';
-	t_size_t	n = 13;
+	char	*str = "-12345";
+	int		result;
 
-	result = ft_memchr(str, c, n);
-	printf("String after %c is - %s\n", c, result);
+	result = ft_atoi(str);
+	printf("Result: %d\n", result);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 15:03:13 by clu               #+#    #+#             */
-/*   Updated: 2024/10/31 14:20:20 by clu              ###   ########.fr       */
+/*   Updated: 2024/10/31 14:40:47 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ int			ft_toupper(int c);
 int			ft_tolower(int c);
 int			ft_strncmp(const char *s1, const char *s2, t_size_t n);
 void		*ft_memchr(const void *s, int c, t_size_t n);
+int			ft_memcmp(const void *s1, const void *s2, t_size_t n);
+int			ft_atoi(const char *str);
 
 #endif
