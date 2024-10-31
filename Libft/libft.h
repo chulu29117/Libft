@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 15:03:13 by clu               #+#    #+#             */
-/*   Updated: 2024/10/31 11:07:49 by clu              ###   ########.fr       */
+/*   Updated: 2024/10/31 11:57:07 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ char		*ft_strnstr(const char *str, const char *to_find, t_size_t len);
 t_size_t	ft_strlcpy(char *dest, const char *src, t_size_t size);
 t_size_t	ft_strlcat(char *dest, const char *src, t_size_t size);
 void		ft_bzero(void *s, t_size_t n);
+void		*ft_memcpy(void *dest, const void *src, t_size_t n);
+void		*ft_memmove(void *dest, const void *src, t_size_t n);
 
 #endif

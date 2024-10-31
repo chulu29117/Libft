@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 09:51:49 by clu               #+#    #+#             */
-/*   Updated: 2024/10/31 11:09:25 by clu              ###   ########.fr       */
+/*   Updated: 2024/10/31 13:48:24 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,3 +150,42 @@
 // 	printf("\n");
 // 	return (0);
 // }
+
+// Test for ft_memcpy
+// int	main(void)
+// {
+// 	char	src[30] = "Hello, World!";
+// 	char	dest[30] = "Good Morning!";
+// 	char	*result;
+
+// 	result = ft_memcpy(dest, src, 5);
+// 	printf("Result: %s\n", result);
+// 	return (0);
+// }
+
+// Test for ft_memmove
+// int	main(void)
+// {
+// 	char src[] = "Hello, World!";
+// 	char dest[] = "Good Morning!";
+
+// 	printf("Before memmove, src: %s, dest: %s\n", src, dest);
+// 	ft_memmove(dest, src, 14);
+// 	printf("After memmove, src: %s, dest: %s\n", src, dest);
+// 	return (0);
+// }
+
+// Test for ft_mmmove overlapped case
+int main(void)
+{
+    char buffer[] = "Hello, World!";
+    // Overlapping case: `dest` starts partway into `src`
+    char *src = buffer;
+    char *dest = buffer + 7; // Points to 'W' in "World!"
+
+    printf("Before memmove, buffer: \"%s\"\n", buffer);
+    // Move 6 bytes from src to dest within the same buffer, causing overlap
+    ft_memmove(dest, src, 6);
+    printf("After memmove, buffer: \"%s\"\n", buffer);
+    return (0);
+}
