@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 09:51:49 by clu               #+#    #+#             */
-/*   Updated: 2024/10/31 13:53:01 by clu              ###   ########.fr       */
+/*   Updated: 2024/10/31 14:32:29 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,11 +191,45 @@
 // }
 
 // Test for ft_toupper
+// int	main(void)
+// {
+// 	printf("ft_toupper('Q') = %c\n", ft_toupper('Q'));
+// 	printf("ft_toupper('7') = %c\n", ft_toupper('7'));
+// 	printf("ft_toupper('y') = %c\n", ft_toupper('y'));
+// 	printf("ft_toupper('a') = %c\n", ft_toupper('a'));
+// 	return (0);
+// }
+
+// Test for ft_tolower
+// int	main(void)
+// {
+// 	printf("ft_tolower('Q') = %c\n", ft_tolower('Q'));
+// 	printf("ft_tolower('7') = %c\n", ft_tolower('7'));
+// 	printf("ft_tolower('y') = %c\n", ft_tolower('y'));
+// 	printf("ft_tolower('A') = %c\n", ft_tolower('A'));
+// 	return (0);
+// }
+
+// Test for ft_strncmp
+// int	main(void)
+// {
+// 	char		*str1 = "Hello, World!";
+// 	char		*str2 = "Morning!";
+// 	t_size_t	n = 5;
+
+// 	printf("ft_strncmp: %d\n", ft_strncmp(str1, str2, n));
+// 	return (0);
+// }
+
+// Test for ft_memchr
 int	main(void)
 {
-	printf("ft_toupper('Q') = %c\n", ft_toupper('Q'));
-	printf("ft_toupper('7') = %c\n", ft_toupper('7'));
-	printf("ft_toupper('y') = %c\n", ft_toupper('y'));
-	printf("ft_toupper('a') = %c\n", ft_toupper('a'));
+	char		*str = "Hello, World!";
+	char		*result;
+	int			c = 'W';
+	t_size_t	n = 13;
+
+	result = ft_memchr(str, c, n);
+	printf("String after %c is - %s\n", c, result);
 	return (0);
 }
