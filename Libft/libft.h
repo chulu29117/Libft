@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 15:03:13 by clu               #+#    #+#             */
-/*   Updated: 2024/10/31 11:57:07 by clu              ###   ########.fr       */
+/*   Updated: 2024/10/31 13:52:28 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ t_size_t	ft_strlcat(char *dest, const char *src, t_size_t size);
 void		ft_bzero(void *s, t_size_t n);
 void		*ft_memcpy(void *dest, const void *src, t_size_t n);
 void		*ft_memmove(void *dest, const void *src, t_size_t n);
+int			ft_toupper(int c);
+
 
 #endif

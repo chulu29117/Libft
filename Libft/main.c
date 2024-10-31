@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 09:51:49 by clu               #+#    #+#             */
-/*   Updated: 2024/10/31 13:48:24 by clu              ###   ########.fr       */
+/*   Updated: 2024/10/31 13:53:01 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,16 +176,26 @@
 // }
 
 // Test for ft_mmmove overlapped case
-int main(void)
-{
-    char buffer[] = "Hello, World!";
-    // Overlapping case: `dest` starts partway into `src`
-    char *src = buffer;
-    char *dest = buffer + 7; // Points to 'W' in "World!"
+// int main(void)
+// {
+//     char buffer[] = "Hello, World!";
+//     // Overlapping case: `dest` starts partway into `src`
+//     char *src = buffer;
+//     char *dest = buffer + 7; // Points to 'W' in "World!"
 
-    printf("Before memmove, buffer: \"%s\"\n", buffer);
-    // Move 6 bytes from src to dest within the same buffer, causing overlap
-    ft_memmove(dest, src, 6);
-    printf("After memmove, buffer: \"%s\"\n", buffer);
-    return (0);
+//     printf("Before memmove, buffer: \"%s\"\n", buffer);
+//     // Move 6 bytes from src to dest within the same buffer, causing overlap
+//     ft_memmove(dest, src, 6);
+//     printf("After memmove, buffer: \"%s\"\n", buffer);
+//     return (0);
+// }
+
+// Test for ft_toupper
+int	main(void)
+{
+	printf("ft_toupper('Q') = %c\n", ft_toupper('Q'));
+	printf("ft_toupper('7') = %c\n", ft_toupper('7'));
+	printf("ft_toupper('y') = %c\n", ft_toupper('y'));
+	printf("ft_toupper('a') = %c\n", ft_toupper('a'));
+	return (0);
 }
