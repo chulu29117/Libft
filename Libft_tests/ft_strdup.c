@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 12:00:47 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 12:44:23 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 14:28:20 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ char	*ft_strdup(const char *s1)
 	char		*ptr;
 	size_t		len;
 
-	len = ft_strlen(s1) + 1;
-	ptr = (char *)malloc(len);
-	if (ptr == 0)
-		return (0);
-	ft_memcpy(ptr, s1, len);
+	len = ft_strlen(s1) + 1;	// +1 for the null-terminator
+	ptr = (char *)malloc(len); 	// Allocate memory for the string
+	if (ptr == NULL)			// If malloc fails, return 0
+		return (NULL);
+	ft_memcpy(ptr, s1, len);	// Copy the string to the allocated memory
 	return (ptr);
 }
 
