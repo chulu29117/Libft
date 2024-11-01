@@ -6,13 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:16:20 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 11:58:16 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 12:08:34 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(t_size_t nmemb, t_size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
 

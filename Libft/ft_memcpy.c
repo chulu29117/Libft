@@ -6,15 +6,15 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:20:14 by clu               #+#    #+#             */
-/*   Updated: 2024/10/31 11:20:34 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 12:08:22 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, t_size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	t_size_t	i;
+	size_t	i;
 	char		*ptr_dest;
 	char		*ptr_src;
 

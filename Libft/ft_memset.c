@@ -6,16 +6,16 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 10:12:22 by clu               #+#    #+#             */
-/*   Updated: 2024/10/31 13:59:28 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 12:08:22 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, t_size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*ptr;
-	t_size_t		i;
+	size_t		i;
 
 	ptr = (unsigned char *) s;
 	i = 0;

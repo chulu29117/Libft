@@ -6,15 +6,15 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:06:53 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 11:51:20 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 12:08:34 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, t_size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_size_t	i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)
@@ -33,7 +33,7 @@ int	main(void)
 	char		*str = "Hello, World!";
 	char		*result;
 	int			c = 'W';
-	t_size_t	n = 13;
+	size_t	n = 13;
 
 	result = ft_memchr(str, c, n);
 	printf("String after %c is - %s\n", c, result);

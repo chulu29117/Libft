@@ -6,16 +6,16 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:26:52 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 11:53:04 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 12:08:34 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, t_size_t len)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	t_size_t	i;
-	t_size_t	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	if (*to_find == '\0')
@@ -40,7 +40,7 @@ int	main(void)
 {
 	char	*str = "Hello, World!";
 	char	*to_find = "World";
-	t_size_t	len = 13;
+	size_t	len = 13;
 
 	printf("String: %s\n", str);
 	printf("To find: %s\n", to_find);

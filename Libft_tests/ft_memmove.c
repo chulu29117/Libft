@@ -6,13 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:40:01 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 11:51:55 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 12:08:34 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, t_size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char			*ptr_dest;
 	const char		*temp;

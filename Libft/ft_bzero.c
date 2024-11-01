@@ -6,15 +6,15 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:54:17 by clu               #+#    #+#             */
-/*   Updated: 2024/10/31 10:54:56 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 12:08:22 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, t_size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	t_size_t	i;
+	size_t	i;
 	char		*ptr;
 
 	i = 0;
