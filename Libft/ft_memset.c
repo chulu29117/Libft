@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 10:12:22 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 12:08:22 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 12:09:55 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*ptr;
-	size_t		i;
+	size_t			i;
 
 	ptr = (unsigned char *) s;
 	i = 0;
