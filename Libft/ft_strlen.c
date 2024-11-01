@@ -6,13 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 09:48:09 by clu               #+#    #+#             */
-/*   Updated: 2024/10/30 15:04:08 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 12:40:45 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 
