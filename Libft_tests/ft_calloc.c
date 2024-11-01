@@ -6,11 +6,25 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:16:20 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 12:08:34 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 12:35:30 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t		i;
+	char		*ptr;
+
+	i = 0;
+	ptr = (char *)s;
+	while (i < n)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+}
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -24,7 +38,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 }
 
 #include <stdio.h>
-#include <stdlib.h>
 // Test for ft_calloc
 int	main(void)
 {
