@@ -6,21 +6,19 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 09:48:09 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 11:52:46 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 12:46:03 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
-	{
 		i++;
-	}
 	return (i);
 }
 
@@ -28,9 +26,9 @@ int	ft_strlen(char *str)
 // Test for ft_strlen
 int	main(void)
 {
-	int	string;
-
-	string = ft_strlen("Hello");
-	printf("Number of characters: %d\n", string);
+	int	strlen;
+	
+	strlen = ft_strlen("Hello");
+	printf("Number of characters: %d\n", strlen);
 	return (0);
 }
