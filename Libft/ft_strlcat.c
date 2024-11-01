@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:01:59 by clu               #+#    #+#             */
-/*   Updated: 2024/10/31 10:55:16 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 11:45:31 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,20 @@
 
 t_size_t	ft_strlcat(char *dest, const char *src, t_size_t size)
 {
-	t_size_t	i;
-	t_size_t	j;
 	t_size_t	dest_len;
 	t_size_t	src_len;
+	t_size_t	i;
 
-	dest_len = 0;
-	while (dest[dest_len] != '\0')
-		dest_len++;
-	src_len = 0;
-	while (src[src_len] != '\0')
-		src_len++;
+	dest_len = ft_strlen(dest);
+	src_len = ft_strlen(src);
 	if (size <= dest_len)
-		return (size + src_len);
-	i = dest_len;
-	j = 0;
-	while ((src[j] != '\0') && (i <= size -1))
+		return (src_len + size);
+	i = 0;
+	while (src[i] && dest_len + i < size - 1)
 	{
-		dest[i] = src[j];
+		dest[dest_len + i] = src[i];
 		i++;
-		j++;
 	}
-	dest[i] = '\0';
-	return (i + size);
+	dest[dest_len + i] = '\0';
+	return (dest_len + src_len);
 }

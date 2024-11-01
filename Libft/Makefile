@@ -6,35 +6,39 @@
 #    By: clu <clu@student.hive.fi>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 15:08:55 by clu               #+#    #+#              #
-#    Updated: 2024/10/31 14:50:23 by clu              ###   ########.fr        #
+#    Updated: 2024/11/01 11:00:58 by clu              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-.PHONY: all clean fclean re
 
 NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
-SRC_DIR = srcs
-INC_DIR = includes
+SOURCES = sources
+INCLUDES = includes
 
-SRC_FILES = 
+SOURCES = ft_atoi.c ft_isalnum.c ft_isdigit.c ft_memcmp.c ft_memset.c ft_strlcpy.c \
+ft_strnstr.c ft_toupper.c ft_bzero.c ft_isalpha.c ft_isprint.c ft_memcpy.c ft_strchr.c \
+ft_strlen.c ft_strrchr.c ft_isascii.c ft_memchr.c ft_memmove.c ft_strlcat.c ft_strncmp.c \
+ft_tolower.c ft_calloc.c 
 
 
-OBJ_FILES = $(SRC_FILES:.c=.o)
+OBJECTS = $(SOURCES:.c=.o)
+BONUS_OBJECTS = $(SOURCES:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ_FILES)
-	@ar rcs $@ $^
+$(NAME): $(OBJECTS)
+	@ar rcs $(NAME) $(OBJECTS)
 
 %.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) $(SOURCES) -I libft.h -c $< -o $@
 
 clean:
-	rm -f $(OBJ_FILES)
+	rm -f $(OBJECTS) $(BONUS_OBJECTS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re bonus

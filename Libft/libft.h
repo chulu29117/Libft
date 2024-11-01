@@ -6,13 +6,14 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 15:03:13 by clu               #+#    #+#             */
-/*   Updated: 2024/10/31 14:40:47 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/01 11:56:03 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define STDLIB_H
 typedef unsigned long	t_size_t;
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
