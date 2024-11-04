@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:40:01 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 15:48:06 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 19:03:16 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,3 +60,16 @@ int	main(void)
 	printf("After memmove, src: %s, dest: %s\n", src, dest);
 	return (0);
 }
+
+// Built-in memmove
+// #include <string.h>
+// int	main(void)
+// {
+// 	char src[] = "Hello, World!";
+// 	char dest[] = "Good Morning!";
+//
+// 	printf("Before memmove, src: %s, dest: %s\n", src, dest);
+// 	memmove(dest, src, 14);
+// 	printf("After memmove, src: %s, dest: %s\n", src, dest);
+// 	return (0);
+// }

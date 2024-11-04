@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:16:20 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 16:30:30 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 16:42:55 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*ptr;
 
 	ptr = malloc(nmemb * size);
-	if (ptr == 0)
-		return (0);
+	if (!ptr)
+		return (NULL);
 	ft_bzero(ptr, nmemb * size);
 	return (ptr);
 }

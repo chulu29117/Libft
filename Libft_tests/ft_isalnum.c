@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:01:51 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 12:36:15 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 18:55:40 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	ft_isdigit(int c)
 
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
+	return (ft_isalpha(c) || ft_isdigit(c));
 	return (0);
 }
 
@@ -37,5 +36,16 @@ int	main(void)
 	printf("ft_isalnum('7') = %d\n", ft_isalnum('7'));
 	printf("ft_isalnum(' ') = %d\n", ft_isalnum(' '));
 	printf("ft_isalnum('@') = %d\n", ft_isalnum('@'));
-	return 0;
+	return (0);
 }
+
+// Built-in isalnum
+// #include <ctype.h>
+// int	main(void)
+// {
+// 	printf("isalnum('Q') = %d\n", isalnum('Q'));
+// 	printf("isalnum('7') = %d\n", isalnum('7'));
+// 	printf("isalnum(' ') = %d\n", isalnum(' '));
+// 	printf("isalnum('@') = %d\n", isalnum('@'));
+// 	return (0);
+// }

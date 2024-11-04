@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:06:01 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 14:39:51 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 18:58:09 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,14 @@ int	main(void)
 	printf("ft_isprint(128) = %d\n", ft_isprint(128));
 	return (0);
 }
+
+// Built-in isprint
+// #include <ctype.h>
+// int	main(void)
+// {
+// 	printf("isprint('Q') = %d\n", isprint('Q'));
+// 	printf("isprint('7') = %d\n", isprint('7'));
+// 	printf("isprint(' ') = %d\n", isprint(' '));
+// 	printf("isprint(128) = %d\n", isprint(128));
+// 	return (0);
+// }

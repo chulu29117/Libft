@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:01:51 by clu               #+#    #+#             */
-/*   Updated: 2024/10/30 15:03:40 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 16:52:15 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
+	return (ft_isalpha(c) || ft_isdigit(c));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:06:53 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 12:08:34 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 19:01:01 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,17 @@ int	main(void)
 	printf("String after %c is - %s\n", c, result);
 	return (0);
 }
+
+// Built-in memchr
+// #include <string.h>
+// int	main(void)
+// {
+// 	char		*str = "Hello, World!";
+// 	char		*result;
+// 	int			c = 'W';
+// 	size_t	n = 13;
+//
+// 	result = memchr(str, c, n);
+// 	printf("String after %c is - %s\n", c, result);
+// 	return (0);
+// }

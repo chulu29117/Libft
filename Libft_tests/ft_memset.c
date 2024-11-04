@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 10:12:22 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 12:11:11 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 19:05:25 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,14 @@ int	main(void)
 	printf("After memset: %s\n", str);
 	return (0);
 }
+
+// Built in memset
+// #include <string.h>
+//
+// int	main(void)
+// {
+// 	char	str[50] = "Hello, World!";
+// 	memset(str, '*', 5);
+// 	printf("After memset: %s\n", str);
+// 	return (0);
+// }
