@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:16:20 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 12:52:30 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 16:30:30 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ void	ft_bzero(void *s, size_t n)
 	i = 0;
 	ptr = (char *)s;
 	while (i < n)
-	{
-		ptr[i] = 0;
-		i++;
-	}
+		ptr[i++] = 0;
 }
 
 void	*ft_calloc(size_t nmemb, size_t size)
@@ -49,10 +46,7 @@ int	main(void)
 	ptr = (int *)ft_calloc(n, sizeof(int));
 	i = 0;
 	while (i < n)
-	{
-		printf("%d\n", ptr[i]);
-		i++;
-	}
+		printf("%d\n", ptr[i++]);
 	return (0);
 }
 
@@ -68,9 +62,6 @@ int	main(void)
 // 	ptr = (int *)calloc(n, sizeof(int));
 // 	i = 0;
 // 	while (i < n)
-// 	{
-// 		printf("%d\n", ptr[i]);
-// 		i++;
-// 	}
+// 		printf("%d\n", ptr[i++]);
 // 	return (0);
 // }

@@ -11,5 +11,4 @@ alias francinette='~/francinette/tester.sh'
 alias paco='~/francinette/tester.sh'
 alias code="flatpak run com.visualstudio.code"
 alias vscode="/Applications/Visual\ Studio\ Code.app/contents/Resources/app/bin/code"
-alias vscode="/Applications/Visual\ Studio\ Code.app/contents/Resources/app/bin/code"
-alias vscode="/Applications/Visual\ Studio\ Code.app/contents/Resources/app/bin/code"
+

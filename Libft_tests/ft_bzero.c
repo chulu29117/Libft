@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:54:17 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 12:51:12 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 16:26:52 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ void	ft_bzero(void *s, size_t n)
 	i = 0;
 	ptr = (char *)s;
 	while (i < n)
-	{
-		ptr[i] = 0;
-		i++;
-	}
+		ptr[i++] = 0;
 }
 
 #include <stdio.h>
@@ -34,17 +31,13 @@ int	main(void)
 	size_t i;
 	// Fill buffer with non-zero values
 	i = 0;
-	while (i < 10) {
-		buffer[i] = 'A';
-		i++;
-	}
+	while (i < 10) 
+		buffer[i++] = 'A';
 	// Zero the buffer using ft_bzero
 	ft_bzero(buffer, 10);
 	i = 0;
-	while (i < 10) {
-		printf("%d ", buffer[i]); // Output: 0 0 0 0 0 0 0 0 0 0
-		i++;
-	}
+	while (i < 10) 
+		printf("%d ", buffer[i++]); // Output: 0 0 0 0 0 0 0 0 0 0
 	printf("\n");
 	return (0);
 }
@@ -57,16 +50,12 @@ int	main(void)
 // 	size_t i;
 	
 // 	i = 0;
-// 	while (i < 10) {
-// 		buffer[i] = 'A';
-// 		i++;
-// 	}
+// 	while (i < 10) 
+// 		buffer[i++] = 'A';
 // 	bzero(buffer, 10);
 // 	i = 0;
-// 	while (i < 10) {
-// 	printf("%d ", buffer[i]); 
-// 		i++;
-// 	}
+// 	while (i < 10) 
+// 		printf("%d ", buffer[i++]); 
 // 	printf("\n");
 // 	return (0);
 // }
