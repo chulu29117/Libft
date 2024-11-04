@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:26:52 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 20:50:19 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 20:50:45 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 }
 
 #include <stdio.h>
-Test for ft_strnstr
+// Test for ft_strnstr
 int	main(void)
 {
 	char	*str = "Hello, World!";
