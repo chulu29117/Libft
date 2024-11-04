@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:40:01 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 12:36:58 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 15:48:06 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	char		*ptr_dest;
 	char		*ptr_src;
 
+	if (!dest && !src && n > 0)
+		return (NULL);
 	i = 0;
 	ptr_dest = (char *)dest;
 	ptr_src = (char *)src;

@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 15:28:21 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 15:41:38 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 15:34:20 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_memcpy(res, s1, ft_strlen(s1) + 1);
 	ft_strlcat(res + ft_strlen(s1), s2, ft_strlen(s2) + 1);
-	res[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	return (res);
 }
 

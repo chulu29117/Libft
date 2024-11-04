@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 14:43:19 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 12:49:23 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 15:49:30 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
 	size_t	i;
+	size_t	actual_len;
 
 	if (!s)
 		return (NULL);
 	if (start >= ft_strlen(s))
-		return (ft_strdup("")); // If start index is outside of the string, return an empty string
+		return (ft_strdup("")); 		// If start index is outside of the string, return an empty string
+	actual_len = ft_strlen(s + start);  // in case len is greater than the actual length of the string
+	if (len > actual_len)
+		len = actual_len;
 	substr = (char *)malloc(sizeof(char) * (len + 1));
 	if (!substr)
 		return (NULL);
