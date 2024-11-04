@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:16:20 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 12:35:30 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 12:52:30 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,22 @@ int	main(void)
 	}
 	return (0);
 }
+
+// Built-in calloc
+// #include <stdlib.h>
+// int	main(void)
+// {
+// 	int		*ptr;
+// 	int		i;
+// 	int		n;
+
+// 	n = 5;
+// 	ptr = (int *)calloc(n, sizeof(int));
+// 	i = 0;
+// 	while (i < n)
+// 	{
+// 		printf("%d\n", ptr[i]);
+// 		i++;
+// 	}
+// 	return (0);
+// }

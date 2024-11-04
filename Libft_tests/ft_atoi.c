@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:37:22 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 11:47:46 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 12:48:40 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,21 @@ int	ft_atoi(const char *str)
 
 int	main(void)
 {
-	char	*str = "-12345";
+	char	*str = "-112355";
 	int		result;
 
 	result = ft_atoi(str);
 	printf("Result: %d\n", result);
 	return (0);
 }
+
+// Built-in atoi
+// int	main(void)
+// {
+// 	char	*str = "-112355";
+// 	int		result;
+
+// 	result = ft_atoi(str);
+// 	printf("Result: %d\n", result);
+// 	return (0);
+// }
