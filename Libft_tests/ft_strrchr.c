@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:16:34 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 15:53:10 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 20:08:01 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,15 @@ int	main(void)
 	printf("String after |%c| is - |%s|\n", 'o', result);
 	return (0);
 }
+
+// Built-in strrchr
+// #include <string.h>
+// int	main(void)
+// {
+// 	char	*string = "Hello, World!";
+// 	char	*result;
+
+// 	result = strrchr(string, 'o');
+// 	printf("String after |%c| is - |%s|\n", 'o', result);
+// 	return (0);
+// }

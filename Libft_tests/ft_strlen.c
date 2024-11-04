@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 09:48:09 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 12:46:03 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 20:02:00 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,14 @@ int	main(void)
 	printf("Number of characters: %d\n", strlen);
 	return (0);
 }
+
+// Built-in strlen
+// #include <string.h>
+// int	main(void)
+// {
+// 	int	len;
+
+// 	len = strlen("Hello");
+// 	printf("Number of characters: %d\n", len);
+// 	return (0);
+// }

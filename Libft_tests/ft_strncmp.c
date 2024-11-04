@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:55:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 12:08:34 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 20:02:54 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,20 @@ int	main(void)
 {
 	char		*str1 = "Hello, World!";
 	char		*str2 = "Morning!";
-	size_t	n = 5;
+	size_t		n = 5;
 
 	printf("ft_strncmp: %d\n", ft_strncmp(str1, str2, n));
 	return (0);
 }
+
+// Built-in strncmp
+// #include <string.h>
+// int	main(void)
+// {
+// 	char		*str1 = "Hello, World!";
+// 	char		*str2 = "Morning!";
+// 	size_t		n = 5;
+
+// 	printf("strncmp: %d\n", strncmp(str1, str2, n));
+// 	return (0);
+// }
