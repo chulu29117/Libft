@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 12:00:47 by clu               #+#    #+#             */
-/*   Updated: 2024/11/01 14:28:20 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 19:38:32 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,3 +64,16 @@ int	main(void)
 	printf("Duplicated string: %s\n", res);
 	return (0);
 }
+
+// Built-in strdup
+// #include <string.h>
+// int	main(void)
+// {
+// 	char	*str = "Hello, World!";
+// 	char	*res;
+//
+// 	res = strdup(str);
+// 	printf("Original string: %s\n", str);
+// 	printf("Duplicated string: %s\n", res);
+// 	return (0);
+// }

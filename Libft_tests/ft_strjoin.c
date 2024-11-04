@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 15:28:21 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 15:34:20 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 19:40:32 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,3 +87,19 @@ int	main(void)
 	free(res);
 	return (0);
 }
+
+// Built-in strjoin
+// #include <string.h>
+// int	main(void)
+// {
+// 	char	*s1 = "Hello";
+// 	char	*s2 = " World";
+// 	char	*res;
+//
+// 	res = strdup(s1);
+// 	strcat(res, s2);
+// 	printf("s1: %s s2: %s\n", s1, s2);
+// 	printf("Result: %s\n", res);
+// 	free(res);
+// 	return (0);
+// }
