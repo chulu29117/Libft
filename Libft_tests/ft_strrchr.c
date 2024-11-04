@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:16:34 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 20:08:01 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 20:45:47 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,22 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int				i;
 	char			*last_occurrence;
 	unsigned char	uc;
 
 	uc = (unsigned char)c;
-	i = 0;
-	last_occurrence = 0;
-	while (s[i] != '\0')
+	last_occurrence = NULL;
+	while (*s)
 	{
-		if (s[i] == uc)
-			last_occurrence = (char *) & s[i];
-		i++;
+		if (*s == uc)
+			last_occurrence = (char *)s;
+		s++;
 	}
-	if (s[i] == uc)
-		last_occurrence = (char *) & s[i];
+	if (*s == uc)
+		last_occurrence = (char *)s;
 	return (last_occurrence);
 }
+
 
 #include <stdio.h>
 // Test for ft_strrchr

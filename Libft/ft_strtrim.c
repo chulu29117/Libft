@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 15:47:11 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 20:24:52 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/04 20:38:49 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*trimmed;
 	size_t	start;
 	size_t	end;
-	size_t	i;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -25,14 +24,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (s1[start] && ft_strchr(set, s1[start]))
 		start++;
 	end = ft_strlen(s1);
-	while (end > start && ft_strrchr(set, s1[end - 1]))
+	while (end > start && ft_strchr(set, s1[end - 1]))
 		end--;
 	trimmed = (char *)malloc(sizeof(char) * (end - start + 1));
 	if (!trimmed)
 		return (NULL);
-	i = 0;
-	while (start < end)
-		trimmed[i++] = s1[start++];
-	trimmed[i] = '\0';
+	ft_memcpy(trimmed, &s1[start], end - start);
+	trimmed[end - start] = '\0';
 	return (trimmed);
 }
