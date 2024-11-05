@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:51:38 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 20:53:53 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/05 10:47:28 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static size_t	count_words(char const *s, char c)
 
 	words = 0;
 	i = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		if (s[i] != c)
 		{

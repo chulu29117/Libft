@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:53:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 20:59:33 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/05 10:46:39 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,13 @@ static size_t	count_words(char const *s, char c)
 
 	words = 0;
 	i = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		if (s[i] != c)
 		{
 			words++;			// Increment word count when a non-delimiter character is found
 			while (s[i] && s[i] != c)
-				i++;			// Move to the end of the current word
+				i++;			// Skip the characters of the current word
 		}
 		else
 			i++;				// Skip the delimiter
@@ -102,7 +102,7 @@ static size_t	count_words(char const *s, char c)
 	return (words);				// Return the total number of words found
 }
 
-// Function to extract the next word from the string
+// Function to extract the next word from the string at index i
 static char	*get_next_word(char const *s, char c, size_t *i)
 {
 	size_t	start;
@@ -110,11 +110,11 @@ static char	*get_next_word(char const *s, char c, size_t *i)
 	char	*word;
 
 	start = *i;
-	// Skip any delimiter characters
+	// Skip any delimiter characters at the start of the word
 	while (s[start] && s[start] == c)
 		start++;
 	end = start;
-	// Find the end of the word
+	// Find the end of the word by skipping the characters of the word
 	while (s[end] && s[end] != c)
 		end++;
 	// Extract the word using ft_substr
@@ -125,30 +125,33 @@ static char	*get_next_word(char const *s, char c, size_t *i)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**split;
+	char	**split; 	// Array of strings to store the words
 	size_t	words;
-	size_t	i;
-	size_t	j;
+	size_t	i;			// Index of the current character in the string
+	size_t	j;			// Index of the current word in the array
 
 	if (!s)
 		return (NULL);
+	// Count the number of words in the string
 	words = count_words(s, c);
+	// Allocate memory for the array of strings
 	split = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!split)
 		return (NULL);
 	i = 0;
 	j = 0;
+	// Extract the words from the string
 	while (s[i])
 	{
 		if (s[i] != c)
 		{
-			split[j] = get_next_word(s, c, &i);
+			split[j] = get_next_word(s, c, &i); // Extract the next word
 			j++;
 		}
-		else
+		else	// Skip the delimiter
 			i++;
 	}
-	split[j] = NULL;
+	split[j] = NULL; // Set the last element of the array
 	return (split);
 }
 
@@ -157,14 +160,24 @@ char	**ft_split(char const *s, char c)
 int	main(void)
 {
 	char	**split;
+	char	**split_1;
+
 	int		i;
 
-	split = ft_split("Hello Good Morning World", ' ');
+	split = ft_split("Hello Good Morning World This is a Test", ' ');
+	split_1 = ft_split("Hello,Good,Morning,World,This,is,a,Test", ',');
 	i = 0;
 	while (split[i])
 	{
 		printf("%s\n", split[i]);
 		i++;
 	}
+	printf("\n");
+	i = 0;
+	while (split_1[i])
+	{
+		printf("%s\n", split_1[i]);
+		i++;
+	}	
 	return (0);
 }
