@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:53:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/05 10:46:39 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/05 10:54:25 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,8 +155,9 @@ char	**ft_split(char const *s, char c)
 	return (split);
 }
 
-#include <stdio.h>
 // Test for ft_split
+#include <stdio.h>
+
 int	main(void)
 {
 	char	**split;
@@ -178,6 +179,22 @@ int	main(void)
 	{
 		printf("%s\n", split_1[i]);
 		i++;
-	}	
+	}
+	// Free the memory allocated
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+	// Free the memory allocated
+	i = 0;
+	while (split_1[i])
+	{
+		free(split_1[i]);
+		i++;
+	}
+	free(split_1);
 	return (0);
 }
