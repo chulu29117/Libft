@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:53:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/05 15:44:23 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/05 16:12:04 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 static size_t	count_words(char const *s, char c);
 static char		*get_next_word(char const *s, char c, size_t *i);
-static void		free_split(char **split, size_t j);
+static void		ft_freearray(char **split, size_t j);
 static void		write_split(char **split, char const *s, char c);
 
 char	**ft_split(char const *s, char c)
@@ -47,13 +47,14 @@ int	main(void)
 	int		i;
 
 	split = ft_split("Hello Good Morning World This is a Test", ' ');
-	split_1 = ft_split("Hello,Good,Morning,World,This,is,a,Test", ',');
+	split_1 = ft_split("  !@#@, #@$$   ", ',');
 	i = 0;
 	while (split[i])
 	{
 		printf("%s\n", split[i]);
 		i++;
 	}
+	ft_freearray(split, i);
 	printf("\n");
 	i = 0;
 	while (split_1[i])
@@ -61,6 +62,7 @@ int	main(void)
 		printf("%s\n", split_1[i]);
 		i++;
 	}
+	ft_freearray(split_1, i);
 }
 
 /// Helper functions ///
@@ -177,7 +179,7 @@ static char	*get_next_word(char const *s, char c, size_t *i)
 }
 
 // Function to free the memory allocated for the split array
-static void	free_split(char **split, size_t j)
+static void	ft_freearray(char **split, size_t j)
 {
 	size_t	i;
 
@@ -202,9 +204,11 @@ static void	write_split(char **split, char const *s, char c)
 	{
 		if (s[i] != c)
 		{
+			// Extract the next word from the string
 			split[j] = get_next_word(s, c, &i);
+			// If the word is NULL, free the memory allocated
 			if (!split[j])
-				free_split(split, j);
+				ft_freearray(split, j);
 			j++;
 		}
 		else

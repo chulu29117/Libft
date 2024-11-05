@@ -6,11 +6,55 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:57:03 by clu               #+#    #+#             */
-/*   Updated: 2024/11/05 12:52:53 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/05 16:21:17 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+size_t	ft_strlen(const char *str);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+char	*ft_strdup(const char *s1);
+static int	count_digits(int n);
+static void	ft_putnbr(char *str, int n, int digits);
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		digits;
+	
+	// Check and print minimum integer value
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	// Get number of digits in the number
+	digits = count_digits(n);
+	// Allocate memory for the string
+	str = (char *)malloc(sizeof(char) * (digits + 1));
+	if (!str)
+		return (NULL);
+	ft_putnbr(str, n, digits);
+	str[digits] = '\0';
+	return (str);	
+}
+
+// Test for ft_itoa
+#include <stdio.h>
+
+int	main(void)
+{
+	int		n;
+	char	*str;
+
+	n = -123456;
+	str = ft_itoa(n);
+	if (str)
+	{
+		printf("Number: %d\n", n);
+		printf("String: %s\n", str);
+		free(str);
+	}
+	return (0);
+}
 
 size_t	ft_strlen(const char *str)
 {
@@ -94,41 +138,4 @@ static void	ft_putnbr(char *str, int n, int digits)
 		str[0] = '-';
 }
 
-char	*ft_itoa(int n)
-{
-	// Declare variables
-	char	*str;
-	int		digits;
-	
-	// Check for minimum integer value
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	// Calculate the number of digits in the number
-	digits = count_digits(n);
-	// Allocate memory for the string
-	str = (char *)malloc(sizeof(char) * (digits + 1));
-	if (!str)
-		return (NULL);
-	ft_putnbr(str, n, digits);
-	str[digits] = '\0';
-	return (str);	
-}
 
-// Test for ft_itoa
-#include <stdio.h>
-
-int	main(void)
-{
-	int		n;
-	char	*str;
-
-	n = -123456;
-	str = ft_itoa(n);
-	if (str)
-	{
-		printf("Number: %d\n", n);
-		printf("String: %s\n", str);
-		free(str);
-	}
-	return (0);
-}

@@ -6,11 +6,30 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:56:52 by clu               #+#    #+#             */
-/*   Updated: 2024/11/05 12:52:45 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/05 16:20:34 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	count_digits(int n);
+static void	ft_putnbr(char *str, int n, int digits);
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		digits;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	digits = count_digits(n);
+	str = (char *)malloc(sizeof(char) * (digits + 1));
+	if (!str)
+		return (NULL);
+	ft_putnbr(str, n, digits);
+	str[digits] = '\0';
+	return (str);
+}
 
 static int	count_digits(int n)
 {
@@ -47,20 +66,4 @@ static void	ft_putnbr(char *str, int n, int digits)
 	}
 	if (sign == -1)
 		str[0] = '-';
-}
-
-char	*ft_itoa(int n)
-{
-	char	*str;
-	int		digits;
-
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	digits = count_digits(n);
-	str = (char *)malloc(sizeof(char) * (digits + 1));
-	if (!str)
-		return (NULL);
-	ft_putnbr(str, n, digits);
-	str[digits] = '\0';
-	return (str);
 }

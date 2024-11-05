@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:51:38 by clu               #+#    #+#             */
-/*   Updated: 2024/11/05 15:39:36 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/05 16:00:48 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	count_words(char const *s, char c);
 static char		*get_next_word(char const *s, char c, size_t *i);
-static void		free_split(char **split, size_t j);
+static void		ft_freearray(char **split, size_t j);
 static void		write_split(char **split, char const *s, char c);
 
 char	**ft_split(char const *s, char c)
@@ -70,7 +70,7 @@ static char	*get_next_word(char const *s, char c, size_t *i)
 	return (word);
 }
 
-static void	free_split(char **split, size_t j)
+static void	ft_freearray(char **split, size_t j)
 {
 	size_t	i;
 
@@ -96,7 +96,7 @@ static void	write_split(char **split, char const *s, char c)
 		{
 			split[j] = get_next_word(s, c, &i);
 			if (!split[j])
-				free_split(split, j);
+				ft_freearray(split, j);
 			j++;
 		}
 		else
