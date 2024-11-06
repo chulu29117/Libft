@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:23:47 by clu               #+#    #+#             */
-/*   Updated: 2024/11/06 10:43:37 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/06 10:47:24 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 
 	i = 0;
 	if (s && f)
+	{
 		while (s[i])
 		{
 			f(i, &s[i]);
 			i++;
 		}
+	}
 }
 
 // Test for ft_striteri
