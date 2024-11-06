@@ -6,7 +6,14 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:56:55 by clu               #+#    #+#             */
-/*   Updated: 2024/11/06 10:56:56 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/06 15:42:07 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	del(lst -> content);
+	free(lst);
+}
