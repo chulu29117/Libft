@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 10:56:23 by clu               #+#    #+#             */
-/*   Updated: 2024/11/06 14:46:20 by clu              ###   ########.fr       */
+/*   Created: 2024/11/06 10:56:32 by clu               #+#    #+#             */
+/*   Updated: 2024/11/07 10:19:50 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int		size;
+	t_list *last;
 
-	size = 0;
-	while (lst)
-	{
-		size++;
-		lst = lst->next;
-	}
-	return (size);
+	if (!lst)
+		return (NULL);
+	last = lst;
+	while (last -> next)
+		last = last -> next;
+	return (last);
 }
 
-// Test for ft_lstsize
+// Test for ft_lstlast
 #include <stdio.h>
 
 t_list	*ft_lstnew(void *content)
@@ -65,7 +64,8 @@ int main(void)
 	print_list(lst);
 
 	// Print the size of the list
-	printf("Size of the list: %d\n", ft_lstsize(lst));
+	printf("Last node in list: \n");
+	print_list(ft_lstlast(lst));
 
 	// Free the list
 	t_list *temp;
