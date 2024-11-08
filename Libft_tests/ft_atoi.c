@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:37:22 by clu               #+#    #+#             */
-/*   Updated: 2024/11/08 13:57:06 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/08 14:25:43 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ int	ft_atoi(const char *str)
 	}
 	while (ft_isdigit(*str))
 	{
-		if ((res > (2147483647 - (*str - '0')) / 10) && sign == 1)
-			return 2147483647;
-		else if (res < (-2147483648 + (*str - '0')) / 10 && sign == -1)
-			return -2147483648;
+		if ((res > (INT_MAX - (*str - '0')) / 10) && sign == 1)
+			return (INT_MAX);
+		else if ((res < (INT_MIN - (*str - '0')) / 10) && sign == -1)
+			return (INT_MIN);
 		res = res * 10 + (*str - '0');
 		str++;
 	}
-	return (res * sign);
+	return ((int)(res * sign));
 }
 
 // Test for ft_atoi
@@ -49,7 +49,7 @@ int	ft_atoi(const char *str)
 
 int	main(void)
 {
-	char	*str = "-112355";
+	char	*str = "2532452452345345";
 	int		result;
 
 	result = ft_atoi(str);
