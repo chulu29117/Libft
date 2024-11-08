@@ -11,4 +11,4 @@ alias francinette='~/francinette/tester.sh'
 alias paco='~/francinette/tester.sh'
 alias code="flatpak run com.visualstudio.code"
 alias vscode="/Applications/Visual\ Studio\ Code.app/contents/Resources/app/bin/code"
-alias val="valgrind --leak-check=full --show-leak-kinds=all"
+alias val="valgrind --leak-check=full --show-leak-kinds=all --verbose"
