@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:16:20 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 16:42:55 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/08 13:12:02 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
 
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	if (nmemb && size > ((size_t)-1) / nmemb)
+		return (NULL);
 	ptr = malloc(nmemb * size);
 	if (!ptr)
 		return (NULL);
@@ -47,6 +51,8 @@ int	main(void)
 	i = 0;
 	while (i < n)
 		printf("%d\n", ptr[i++]);
+	// free memory
+	free(ptr);
 	return (0);
 }
 
