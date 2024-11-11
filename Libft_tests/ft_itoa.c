@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:57:03 by clu               #+#    #+#             */
-/*   Updated: 2024/11/05 16:21:17 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 16:21:55 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char	*ft_itoa(int n)
 {
 	char	*str;
 	int		digits;
-	
 	// Check and print minimum integer value
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
@@ -32,6 +31,7 @@ char	*ft_itoa(int n)
 	str = (char *)malloc(sizeof(char) * (digits + 1));
 	if (!str)
 		return (NULL);
+	// Convert the number to a string
 	ft_putnbr(str, n, digits);
 	str[digits] = '\0';
 	return (str);	
@@ -42,20 +42,53 @@ char	*ft_itoa(int n)
 
 int	main(void)
 {
-	int		n;
 	char	*str;
 
-	n = -123456;
-	str = ft_itoa(n);
+	str = ft_itoa(-123456);
 	if (str)
 	{
-		printf("Number: %d\n", n);
+		printf("Number: %d\n", -123456);
 		printf("String: %s\n", str);
 		free(str);
 	}
+
+	str = ft_itoa(0);
+	if (str)
+	{
+		printf("Number: %d\n", 0);
+		printf("String: %s\n", str);
+		free(str);
+	}
+
+	str = ft_itoa(123456);
+	if (str)
+	{
+		printf("Number: %d\n", 123456);
+		printf("String: %s\n", str);
+		free(str);
+	}
+
+	str = ft_itoa(-2147483648);
+	if (str)
+	{
+		printf("Number: %ld\n", -2147483648);
+		printf("String: %s\n", str);
+		free(str);
+	}
+
+	str = ft_itoa(2147483647);
+	if (str)
+	{
+		printf("Number: %d\n", 2147483647);
+		printf("String: %s\n", str);
+		free(str);
+	}
+
 	return (0);
 }
 
+// Helper functions //
+//////////////////////////////////////////////
 size_t	ft_strlen(const char *str)
 {
 	int	i;
@@ -66,6 +99,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
+// Copy n bytes from src to dest
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t		i;
@@ -114,6 +148,8 @@ static int	count_digits(int n)
 	}
 	return (digits);
 }
+
+// Convert the number to a string
 static void	ft_putnbr(char *str, int n, int digits)
 {
 	int	sign;

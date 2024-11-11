@@ -6,21 +6,14 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:01:51 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 18:55:40 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 16:11:24 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
-{
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
-}
-
-int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
+int	ft_isalpha(int c);
+int	ft_isdigit(int c);
 
 int	ft_isalnum(int c)
 {
@@ -49,3 +42,14 @@ int	main(void)
 // 	printf("isalnum('@') = %d\n", isalnum('@'));
 // 	return (0);
 // }
+
+// Helper functions for ft_isalnum //
+int	ft_isalpha(int c)
+{
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
+
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
