@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:57:21 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 13:49:23 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 13:52:34 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ void	del(void *content);
 // Helper functions prototypes //
 t_list	*ft_lstnew(void *content);
 void	print_list(t_list *lst);
-void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
 size_t	ft_strlen(const char *str);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_strdup(const char *s1);
@@ -46,7 +45,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			while (new_lst)
 			{
 				temp = new_lst -> next;
-				ft_lstdelone(new_lst, del);
+				del(new_lst -> content);
+				free(new_lst);
 				new_lst = temp;
 			}
 			return (NULL);
@@ -83,8 +83,8 @@ int	main(void)
 	print_list(new_lst);
 
 	// Free lists
-	ft_lstclear(&new_lst, del);
 	ft_lstclear(&lst, del);
+	ft_lstclear(&new_lst, del);
 	return (0);
 }
 
@@ -129,17 +129,18 @@ void print_list(t_list *lst)
 	printf("NULL\n");
 }
 
-// Function to clear the list
+// Clear the entire list
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *temp;
+	t_list	*temp;
 
 	if (!lst || !*lst)
 		return ;
 	while (*lst)
 	{
 		temp = (*lst)->next;
-		ft_lstdelone(*lst, del);
+		del((*lst)->content);
+		free(*lst);
 		*lst = temp;
 	}
 	*lst = NULL;
@@ -160,14 +161,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	while (temp->next)
 		temp = temp->next;
 	temp->next = new;
-}
-
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
-{
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	free(lst);
 }
 
 size_t	ft_strlen(const char *str)

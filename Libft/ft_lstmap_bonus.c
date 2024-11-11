@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:57:21 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 13:49:12 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 13:50:11 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			while (new_lst)
 			{
 				temp = new_lst -> next;
-				ft_lstdelone(new_lst, del);
+				del(new_lst -> content);
+				free(new_lst);
 				new_lst = temp;
 			}
 			return (NULL);
