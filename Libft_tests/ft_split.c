@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:53:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/05 16:12:04 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 13:00:53 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(void)
 	int		i;
 
 	split = ft_split("Hello Good Morning World This is a Test", ' ');
-	split_1 = ft_split("  !@#@, #@$$   ", ',');
+	split_1 = ft_split("hello!", ' ');
 	i = 0;
 	while (split[i])
 	{
@@ -143,6 +143,8 @@ static size_t	count_words(char const *s, char c)
 
 	words = 0;
 	i = 0;
+	while (s[i] && s[i] == c)
+		i++;
 	while (s[i] != '\0')
 	{
 		if (s[i] != c)

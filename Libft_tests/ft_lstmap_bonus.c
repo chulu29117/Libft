@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:57:21 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 12:16:22 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 13:49:23 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,29 @@ char	*ft_strdup(const char *s1);
 // each elements. Create a new list resulting of the successive applications 
 // of 'f'. The function 'del' is used to destroy the content of an element 
 // if necessary.
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_lst;
 	t_list	*temp;
 
 	if (!lst || !f || !del)
 		return (NULL);
-	new_lst = NULL;		// Initialize the new list
+	new_lst = NULL;
 	while (lst)
 	{
-		// Create a temp list by apply the function 'f' to the content
 		temp = ft_lstnew(f(lst -> content));
-		// If the function/list fails, clear the new list and return NULL
 		if (!temp)
 		{
-			ft_lstclear(&new_lst, del);
+			while (new_lst)
+			{
+				temp = new_lst -> next;
+				ft_lstdelone(new_lst, del);
+				new_lst = temp;
+			}
 			return (NULL);
 		}
-		// Add the temp content to the end of the new list
 		ft_lstadd_back(&new_lst, temp);
-		// Go to the next node
-		lst = lst -> next;		
+		lst = lst -> next;
 	}
 	return (new_lst);
 }

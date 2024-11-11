@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:51:38 by clu               #+#    #+#             */
-/*   Updated: 2024/11/05 16:00:48 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 13:00:34 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static size_t	count_words(char const *s, char c)
 
 	words = 0;
 	i = 0;
+	while (s[i] && s[i] == c)
+		i++;
 	while (s[i] != '\0')
 	{
 		if (s[i] != c)
@@ -66,6 +68,8 @@ static char	*get_next_word(char const *s, char c, size_t *i)
 	while (s[end] && s[end] != c)
 		end++;
 	word = ft_substr(s, start, end - start);
+	if (!word)
+		return (NULL);
 	*i = end;
 	return (word);
 }
@@ -96,7 +100,10 @@ static void	write_split(char **split, char const *s, char c)
 		{
 			split[j] = get_next_word(s, c, &i);
 			if (!split[j])
+			{
 				ft_freearray(split, j);
+				return ;
+			}
 			j++;
 		}
 		else
