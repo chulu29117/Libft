@@ -6,14 +6,17 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:57:21 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 12:04:15 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 12:16:22 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *));
+// Functions used in lstmap //
+void	*lst_dup(void *content);
 void	del(void *content);
+
+// Helper functions prototypes //
 t_list	*ft_lstnew(void *content);
 void	print_list(t_list *lst);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
@@ -34,7 +37,7 @@ t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst || !f || !del)
 		return (NULL);
-	new_lst = ft_lstnew(NULL);		// Create a new list
+	new_lst = NULL;		// Initialize the new list
 	while (lst)
 	{
 		// Create a temp list by apply the function 'f' to the content
@@ -50,6 +53,7 @@ t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		// Go to the next node
 		lst = lst -> next;		
 	}
+	return (new_lst);
 }
 
 // Test for ft_lstmap
@@ -59,7 +63,6 @@ int	main(void)
 {
 	t_list *lst;
 	t_list *new_lst;
-	t_list *temp;
 
 	// Create initial list
 	lst = ft_lstnew(ft_strdup("Node 1"));
@@ -67,7 +70,7 @@ int	main(void)
 	lst->next->next = ft_lstnew(ft_strdup("Node 3"));
 
 	// Apply ft_lstmap to duplicate the content of each node
-	new_lst = ft_lstmap(lst, ft_strdup, del);
+	new_lst = ft_lstmap(lst, lst_dup, del);
 	if (!new_lst)
 	{
 		printf("Failed to duplicate the list\n");
@@ -78,12 +81,19 @@ int	main(void)
 	printf("New list content:\n");
 	print_list(new_lst);
 
-	// Clear the new list
+	// Free lists
 	ft_lstclear(&new_lst, del);
+	ft_lstclear(&lst, del);
 	return (0);
 }
 
 // Helper functions //
+
+void	*lst_dup(void *content)
+{
+	return (ft_strdup((char *)content));
+}
+
 void	del(void *content)
 {
 	free(content);
