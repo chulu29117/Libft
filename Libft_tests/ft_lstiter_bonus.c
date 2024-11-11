@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:57:14 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 10:59:22 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 11:25:02 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,16 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_strdup(const char *s1);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 
+// Iterates the list ’lst’ and applies the function
+// ’f’ on the content of each node.
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (!lst || !f)
 		return ;
-	while (lst)
+	while (lst)				// Iterates the list
 	{
-		f(lst -> content);
-		lst = lst -> next;
+		f(lst -> content);	// Function on the content of each node
+		lst = lst -> next;	// Go to next node
 	}
 }
 

@@ -7,6 +7,10 @@
 	"settings": {
 		"files.associations": {
 			"libft.h": "c"
-		}
+		},
+		"json.schemas": [
+
+		],
+		"editor.inlineSuggest.enabled": true
 	}
 }
