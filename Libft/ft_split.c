@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:51:38 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 14:40:00 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 14:50:19 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static size_t	count_words(char const *s, char c);
 static char		*get_next_word(char const *s, char c, size_t *i);
 static void		ft_freearray(char **split, size_t j);
-static void		write_split(char **split, char const *s, char c);
+static int		write_split(char **split, char const *s, char c);
 
 char	**ft_split(char const *s, char c)
 {
@@ -85,14 +85,12 @@ static void	ft_freearray(char **split, size_t j)
 	while (i < j)
 	{
 		free(split[i]);
-		split[i] = NULL;
 		i++;
 	}
 	free(split);
-	split = NULL;
 }
 
-static void	write_split(char **split, char const *s, char c)
+static int	write_split(char **split, char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -107,6 +105,7 @@ static void	write_split(char **split, char const *s, char c)
 			if (!split[j])
 			{
 				ft_freearray(split, j);
+				return (-1);
 			}
 			j++;
 		}
@@ -114,4 +113,5 @@ static void	write_split(char **split, char const *s, char c)
 			i++;
 	}
 	split[j] = NULL;
+	return (0);
 }
