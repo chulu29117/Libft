@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:54:17 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 16:26:52 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 15:59:08 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,28 @@ void	ft_bzero(void *s, size_t n)
 // Test for ft_bzero
 int	main(void) 
 {
-	char buffer[10];
+	char buffer1[10];
+	char buffer2[10];
 	size_t i;
-	// Fill buffer with non-zero values
+
+	// Test case 1: Zero the entire buffer
 	i = 0;
 	while (i < 10) 
-		buffer[i++] = 'A';
-	// Zero the buffer using ft_bzero
-	ft_bzero(buffer, 10);
+		buffer1[i++] = 'A';
+	ft_bzero(buffer1, 10);
 	i = 0;
 	while (i < 10) 
-		printf("%d ", buffer[i++]); // Output: 0 0 0 0 0 0 0 0 0 0
+		printf("%d ", buffer1[i++]); // Output: 0 0 0 0 0 0 0 0 0 0
+	printf("\n");
+
+	// Test case 2: Zero the first half of the buffer
+	i = 0;
+	while (i < 10) 
+		buffer2[i++] = 'A';
+	ft_bzero(buffer2, 5);
+	i = 0;
+	while (i < 10) 
+		printf("%d ", buffer2[i++]); // Output: 0 0 0 0 0 65 65 65 65 65
 	printf("\n");
 	return (0);
 }
@@ -46,16 +57,28 @@ int	main(void)
 // #include <strings.h>
 // int	main(void)
 // {
-// 	char buffer[10];
+// 	char buffer1[10];
+// 	char buffer2[10];
 // 	size_t i;
-	
+
+// 	// Test case 1: Zero the entire buffer
 // 	i = 0;
 // 	while (i < 10) 
-// 		buffer[i++] = 'A';
-// 	bzero(buffer, 10);
+// 		buffer1[i++] = 'A';
+// 	bzero(buffer1, 10);
 // 	i = 0;
 // 	while (i < 10) 
-// 		printf("%d ", buffer[i++]); 
+// 		printf("%d ", buffer1[i++]); // Output: 0 0 0 0 0 0 0 0 0 0
+// 	printf("\n");
+
+// 	// Test case 2: Zero the first half of the buffer
+// 	i = 0;
+// 	while (i < 10) 
+// 		buffer2[i++] = 'A';
+// 	bzero(buffer2, 5);
+// 	i = 0;
+// 	while (i < 10) 
+// 		printf("%d ", buffer2[i++]); // Output: 0 0 0 0 0 65 65 65 65 65
 // 	printf("\n");
 // 	return (0);
 // }
