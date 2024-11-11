@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:53:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 13:00:53 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 14:25:16 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,6 +176,11 @@ static char	*get_next_word(char const *s, char c, size_t *i)
 		end++;
 	// Extract the word using ft_substr
 	word = ft_substr(s, start, end - start);
+	if (!word)	// If the word is NULL, free the memory allocated
+	{
+		*i = end;	// Update the index to the end of the current word
+		return (NULL);
+	}
 	*i = end; 		// Update the index to the end of the current word
 	return (word);
 }

@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:51:38 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 13:00:34 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 14:40:00 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,10 @@ static char	*get_next_word(char const *s, char c, size_t *i)
 		end++;
 	word = ft_substr(s, start, end - start);
 	if (!word)
+	{
+		*i = end;
 		return (NULL);
+	}
 	*i = end;
 	return (word);
 }
@@ -82,9 +85,11 @@ static void	ft_freearray(char **split, size_t j)
 	while (i < j)
 	{
 		free(split[i]);
+		split[i] = NULL;
 		i++;
 	}
 	free(split);
+	split = NULL;
 }
 
 static void	write_split(char **split, char const *s, char c)
@@ -102,7 +107,6 @@ static void	write_split(char **split, char const *s, char c)
 			if (!split[j])
 			{
 				ft_freearray(split, j);
-				return ;
 			}
 			j++;
 		}
