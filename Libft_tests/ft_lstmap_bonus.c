@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:57:21 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 14:21:14 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/11 15:30:14 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,26 +63,40 @@ int	main(void)
 	t_list *lst;
 	t_list *new_lst;
 
-	// Create initial list
+	// Test case 1: Normal list
+	printf("Test case 1: Normal list\n");
 	lst = ft_lstnew(ft_strdup("Node 1"));
 	lst->next = ft_lstnew(ft_strdup("Node 2"));
 	lst->next->next = ft_lstnew(ft_strdup("Node 3"));
-
-	// Apply ft_lstmap to duplicate the content of each node
 	new_lst = ft_lstmap(lst, lst_dup, del);
 	if (!new_lst)
-	{
 		printf("Failed to duplicate the list\n");
-		return (1);
-	}
-
-	// Print the content of the new list
-	printf("New list content:\n");
-	print_list(new_lst);
-
-	// Free lists
+	else
+		print_list(new_lst);
 	ft_lstclear(&lst, del);
 	ft_lstclear(&new_lst, del);
+
+	// Test case 2: Empty list
+	printf("Test case 2: Empty list\n");
+	lst = NULL;
+	new_lst = ft_lstmap(lst, lst_dup, del);
+	if (!new_lst)
+		printf("New list is NULL as expected\n");
+	else
+		print_list(new_lst);
+	ft_lstclear(&new_lst, del);
+
+	// Test case 3: Single element list
+	printf("Test case 3: Single element list\n");
+	lst = ft_lstnew(ft_strdup("Single Node"));
+	new_lst = ft_lstmap(lst, lst_dup, del);
+	if (!new_lst)
+		printf("Failed to duplicate the list\n");
+	else
+		print_list(new_lst);
+	ft_lstclear(&lst, del);
+	ft_lstclear(&new_lst, del);
+	
 	return (0);
 }
 
