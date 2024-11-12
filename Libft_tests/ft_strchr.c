@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 11:23:39 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 10:21:46 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 14:00:55 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,33 @@ char	*ft_strchr(const char *s, int c)
 
 #include <stdio.h>
 // Test for ft_strchr
-int	main(void)
+
+void test_functions(void)
 {
 	char *string = "Hello, World!";
 	char *result;
 
+	// Test case 1: Search for 'o' in the string
 	result = ft_strchr(string, 'o');
-	printf("String after |%c| is - |%s|\n", 'o', result);
-	return (0);
+	printf("Test case 1: String after |%c| is - |%s|\n", 'o', result);
+
+	// Test case 2: Search for 'z' in the string
+	result = ft_strchr(string, 'z');
+	printf("Test case 2: String after |%c| is - |%s|\n", 'z', result);
+
+	// Test case 3: Search for '\0' in the string
+	result = ft_strchr(string, '\0');
+	printf("Test case 3: String after |%c| is - |%s|\n", '\0', result);
+
+	// Test case 4: Search for 'H' in the string
+	result = ft_strchr(string, 'H');
+	printf("Test case 4: String after |%c| is - |%s|\n", 'H', result);
+}
+
+int main(void)
+{
+	test_functions();
+	return 0;
 }
 
 // Built in strchr
