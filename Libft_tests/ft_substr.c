@@ -6,12 +6,57 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 14:43:19 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 15:49:30 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:50:00 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Prototype functions //
+size_t	ft_strlen(const char *str);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+char	*ft_strdup(const char *s1);
+
+// Allocates and returns a substring from the string s.
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*substr;
+	size_t	i;
+	size_t	actual_len;
+
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		return (ft_strdup("")); 		// If start index is outside of the string, return an empty string
+	actual_len = ft_strlen(s + start);  // in case len is greater than the actual length of the string
+	if (len > actual_len)
+		len = actual_len;
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
+	i = 0;
+	while (i < len && s[start + i])
+	{
+		substr[i] = s[start + i];	// Copy characters from the string to the substring
+		i++;
+	}
+	substr[i] = '\0';
+	return (substr);
+}
+
+#include <stdio.h>
+
+// Test for ft_substr.c
+int	main(void)
+{
+	char	*str = "Hello, World!";
+	char	*substr = ft_substr(str, 7, 5);
+	printf("%s\n", substr);
+	free(substr);
+	return (0);
+}
+
+// Helper functions //
 size_t	ft_strlen(const char *str)
 {
 	int	i;
@@ -50,42 +95,4 @@ char	*ft_strdup(const char *s1)
 		return (NULL);
 	ft_memcpy(ptr, s1, len);	// Copy the string to the allocated memory
 	return (ptr);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*substr;
-	size_t	i;
-	size_t	actual_len;
-
-	if (!s)
-		return (NULL);
-	if (start >= ft_strlen(s))
-		return (ft_strdup("")); 		// If start index is outside of the string, return an empty string
-	actual_len = ft_strlen(s + start);  // in case len is greater than the actual length of the string
-	if (len > actual_len)
-		len = actual_len;
-	substr = (char *)malloc(sizeof(char) * (len + 1));
-	if (!substr)
-		return (NULL);
-	i = 0;
-	while (i < len && s[start + i])
-	{
-		substr[i] = s[start + i];	// Copy characters from the string to the substring
-		i++;
-	}
-	substr[i] = '\0';
-	return (substr);
-}
-
-#include <stdio.h>
-
-// Test for ft_substr.c
-int	main(void)
-{
-	char	*str = "Hello, World!";
-	char	*substr = ft_substr(str, 7, 5);
-	printf("%s\n", substr);
-	free(substr);
-	return (0);
 }

@@ -6,11 +6,15 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:56:23 by clu               #+#    #+#             */
-/*   Updated: 2024/11/07 10:19:59 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 09:59:51 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// Prototype functions //
+t_list	*ft_lstnew(void *content);
+void	print_list(t_list *lst);
 
 int	ft_lstsize(t_list *lst)
 {
@@ -27,29 +31,6 @@ int	ft_lstsize(t_list *lst)
 
 // Test for ft_lstsize
 #include <stdio.h>
-
-t_list	*ft_lstnew(void *content)
-{
-	t_list	*new;
-
-	new = malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new -> content = content;
-	new -> next = NULL;
-	return (new);
-}
-
-// Function to print the list
-void print_list(t_list *lst)
-{
-	while (lst)
-	{
-		printf("%s -> ", (char *)lst->content);
-		lst = lst->next;
-	}
-	printf("NULL\n");
-}
 
 int main(void)
 {
@@ -77,4 +58,28 @@ int main(void)
 	}
 
 	return (0);
+}
+
+// Helper functions //
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new;
+
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new -> content = content;
+	new -> next = NULL;
+	return (new);
+}
+
+// Function to print the list
+void print_list(t_list *lst)
+{
+	while (lst)
+	{
+		printf("%s -> ", (char *)lst->content);
+		lst = lst->next;
+	}
+	printf("NULL\n");
 }

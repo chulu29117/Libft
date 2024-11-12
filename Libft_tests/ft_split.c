@@ -6,12 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:53:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 14:53:25 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:15:12 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Prototype functions //
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *s1);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -21,6 +22,7 @@ static char		*get_next_word(char const *s, char c, size_t *i);
 static void		ft_freearray(char **split, size_t j);
 static void		write_split(char **split, char const *s, char c);
 
+// ft_split splits the string s using the delimiter c and returns an array of strings.
 char	**ft_split(char const *s, char c)
 {
 	char	**split;

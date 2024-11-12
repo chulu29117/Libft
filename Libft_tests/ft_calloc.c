@@ -6,12 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:16:20 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 16:05:28 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:20:11 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Function prototypes //
 void	ft_bzero(void *s, size_t n);
 
 void	*ft_calloc(size_t nmemb, size_t size)
@@ -20,7 +21,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	// If either nmemb or size is 0, return a pointer to 0 bytes
 	if (nmemb == 0 || size == 0)
-		return (malloc(0));
+		return (NULL);
 	// If nmemb * size would overflow, return NULL
 	if (nmemb && size > ((size_t)-1) / nmemb)
 		return (NULL);

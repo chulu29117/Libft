@@ -6,16 +6,14 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:37:22 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 15:51:32 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 09:52:58 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
+// Prototype //
+int	ft_isdigit(int c);
 
 int	ft_atoi(const char *str)
 {
@@ -125,3 +123,9 @@ int	main(void)
 
 // 	return (0);
 // }
+
+// Helper functions //
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}

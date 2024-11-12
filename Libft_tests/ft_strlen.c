@@ -6,12 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 09:48:09 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 20:02:00 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:37:58 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Returns the length of the string.
 size_t	ft_strlen(const char *str)
 {
 	int	i;

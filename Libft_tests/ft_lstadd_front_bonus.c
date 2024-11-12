@@ -6,16 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:56:14 by clu               #+#    #+#             */
-/*   Updated: 2024/11/07 10:19:37 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 09:51:52 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // Add a new element to the front of the list
-// PARAMETERS
-// 	lst: pointer address to the first element of the list
-// 	new: pointer address of the new element to add to the list
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	new -> next = *lst; // Set the next node of the new node to the first node of the list

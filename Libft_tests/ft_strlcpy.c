@@ -6,12 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 15:19:48 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 19:59:14 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:37:45 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Copy string src to dest by size.
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	src_len;

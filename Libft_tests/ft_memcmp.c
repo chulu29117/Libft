@@ -6,12 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:34:07 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 19:00:30 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:02:35 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// The memcmp() function compares string s1 against string s2.
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*ptr1;

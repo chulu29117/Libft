@@ -6,22 +6,23 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 10:12:22 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 19:05:25 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:12:58 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// ft_memset fills the first n bytes of the memory area pointed to by s with c.
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*ptr;
 	size_t			i;
 
-	ptr = (unsigned char *) s;
+	ptr = (unsigned char *) s;	// Cast s to an unsigned char pointer
 	i = 0;
 	while (i < n)
 	{
-		ptr[i] = (unsigned char) c;
+		ptr[i] = (unsigned char) c;	// Set each byte to c
 		i++;
 	}
 	return (s);

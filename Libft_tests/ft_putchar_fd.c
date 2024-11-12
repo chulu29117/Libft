@@ -6,12 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:38:18 by clu               #+#    #+#             */
-/*   Updated: 2024/11/05 16:39:06 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:13:30 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+//	ft_putchar_fd writes the character c to the given file descriptor.
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);

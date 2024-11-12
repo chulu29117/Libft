@@ -6,12 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:55:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 20:02:54 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:39:48 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Compares strings s1 and s2 by n bytes
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;

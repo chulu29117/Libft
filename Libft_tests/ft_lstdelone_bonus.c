@@ -6,12 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:56:55 by clu               #+#    #+#             */
-/*   Updated: 2024/11/07 10:19:44 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 09:56:55 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Function prototypes //
 void	del(void *content);
 t_list	*ft_lstnew(void *content);
 void	print_list(t_list *lst);

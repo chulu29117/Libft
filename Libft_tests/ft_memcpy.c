@@ -6,12 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:20:14 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 20:34:13 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:04:01 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// ft_memcpy copies n bytes from src to dest.
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t		i;

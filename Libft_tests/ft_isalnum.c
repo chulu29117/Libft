@@ -6,12 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:01:51 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 16:11:24 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 09:52:16 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Function prototypes //
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);
 

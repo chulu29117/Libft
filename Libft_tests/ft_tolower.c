@@ -6,12 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:53:41 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 20:09:07 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:50:46 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Converts an upper-case letter to the corresponding lower-case letter.
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')

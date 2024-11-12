@@ -6,12 +6,13 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 11:23:39 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 19:08:52 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:21:46 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// The strchr() function locates the first occurrence of c (converted to a char) in the string 
 char	*ft_strchr(const char *s, int c)
 {
 	int	i;

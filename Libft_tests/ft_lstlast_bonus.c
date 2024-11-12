@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:56:32 by clu               #+#    #+#             */
-/*   Updated: 2024/11/07 10:19:50 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 09:54:39 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ t_list	*ft_lstlast(t_list *lst)
 
 	if (!lst)
 		return (NULL);
-	last = lst;
-	while (last -> next)
-		last = last -> next;
+	last = lst;					// Set the last node to the first node
+	while (last -> next)		// Iterate the list until the last node
+		last = last -> next;	// Set the last node to the next node
 	return (last);
 }
 

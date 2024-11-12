@@ -6,16 +6,18 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:53:19 by clu               #+#    #+#             */
-/*   Updated: 2024/11/05 16:56:46 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:13:46 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Prototype functions //
 size_t	ft_strlen(const char *str);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 
+// ft_putendl_fd writes the string s to the given file descriptor, followed by a newline.
 void	ft_putendl_fd(char *s, int fd)
 {
 	ft_putstr_fd(s, fd);

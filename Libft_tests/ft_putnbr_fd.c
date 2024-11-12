@@ -6,16 +6,18 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:00:56 by clu               #+#    #+#             */
-/*   Updated: 2024/11/05 17:06:27 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:14:15 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Prototype functions //
 size_t	ft_strlen(const char *str);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 
+// ft_putnbr_fd writes the integer n to the given file descriptor.
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)

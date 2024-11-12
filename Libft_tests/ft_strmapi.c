@@ -6,20 +6,22 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:26:57 by clu               #+#    #+#             */
-/*   Updated: 2024/11/08 10:01:05 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 10:38:43 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Prototype functions //
 size_t	ft_strlen(const char *str);
 
+// Applies the function f to each character of the string passed as argument
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*new;
 	size_t	i;
 
-	if (!s || !f)	// Check if s or f is NULL
+	if (!s || !f)
 		return (NULL);
 	new = (char *)malloc(ft_strlen(s) + 1);
 	if (!new)
