@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:57:21 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 09:58:25 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 16:59:04 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new_lst;
 	t_list	*temp;
 	t_list	*nelem;		// To store the new element created by f
-
+	
 	if (!lst || !f || !del)
 		return (NULL);
 	// Initialize the new list

@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 15:28:21 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 15:54:23 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 17:30:25 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	res = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));	// Allocate memory for res
+	res = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!res)
 		return (NULL);
-	ft_memcpy(res, s1, ft_strlen(s1) + 1);						// Copy s1 to res
-	ft_strlcat(res + ft_strlen(s1), s2, ft_strlen(s2) + 1);		// Concatenate s2 to the end of s1
+	ft_memcpy(res, s1, ft_strlen(s1) + 1);
+	ft_strlcat(res, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
 	return (res);
 }
+
 
 // Test for ft_strjoin /////////////////////////////////////////////////
 #include <stdio.h>
@@ -83,6 +84,7 @@ void test_ft_strjoin4()
     const char *s2 = " World";
     char *result_ft = ft_strjoin(s1, s2);
     char *result_std = strcat(strdup(s1), s2);
+	printf("%s\n", result_ft);
     printf("Test case 4:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
     printf("Match: %s\n\n", (strcmp(result_ft, result_std) == 0) ? "Yes" : "No");
     free(result_ft);

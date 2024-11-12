@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:26:52 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 20:49:57 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 17:15:21 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

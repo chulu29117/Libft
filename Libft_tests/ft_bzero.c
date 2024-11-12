@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:54:17 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 15:43:22 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:59:37 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,17 @@ void	ft_bzero(void *s, size_t n)
 // Test for ft_bzero /////////////////////////////////////////////////
 #include <stdio.h>
 #include <strings.h> // For bzero
+
 // Helper function to print buffer
 void print_buffer(const char *buffer, size_t size)
 {
-    for (size_t i = 0; i < size; i++)
-        printf("%d ", buffer[i]);
-    printf("\n");
+	size_t i = 0;
+	while (i < size)
+	{
+		printf("%d ", buffer[i]);
+		i++;
+	}
+	printf("\n");
 }
 
 // Test for zeroing the entire buffer
@@ -153,3 +158,4 @@ int main(void)
     test_ft_bzero_empty_buffer();
     return 0;
 }
+/////////////////////////////////////////////////////////////////////////////

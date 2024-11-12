@@ -6,13 +6,14 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:55:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 10:39:48 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 16:13:23 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // Compares strings s1 and s2 by n bytes
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
@@ -29,8 +30,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 // Test for ft_strncmp
 int	main(void)
 {
-	char		*str1 = "Hello, World!";
-	char		*str2 = "Morning!";
+	char		*str1 = "a";
+	char		*str2 = "aa";
 	size_t		n = 5;
 
 	printf("ft_strncmp: %d\n", ft_strncmp(str1, str2, n));
