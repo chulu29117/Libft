@@ -6,7 +6,7 @@
 #    By: clu <clu@student.hive.fi>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 15:08:55 by clu               #+#    #+#              #
-#    Updated: 2024/11/11 16:43:25 by clu              ###   ########.fr        #
+#    Updated: 2024/11/12 09:40:33 by clu              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,27 +24,27 @@ ft_striteri.c
 BONUS_SOURCES = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
 ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
-TEST_SOURCES = $(addprefix Libft_tests/, $(SOURCES))
-
 OBJECTS = $(SOURCES:.c=.o)
 BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
-TEST_OBJECTS = $(TEST_SOURCES:.c=.o)
 
 all: $(NAME)
 
+# Compile and run tests for the Libft library.
 $(NAME): $(OBJECTS)
-	@ar rcs $(NAME) $(OBJECTS)
+	@ar rcs $(NAME) $(OBJECTS) 		# ar: Archive utility used to create static libraries.
+		     						# r: Insert the files ($^) into the archive, replacing older files.
+		     						# c: Create the archive if it doesn't exist.
+									# s: Write an index to the archive, or update an existing index.
 
+# Compile and run tests for the Libft library with bonus functions.
 bonus: $(OBJECTS) $(BONUS_OBJECTS)
 	@ar rcs $(NAME) $(OBJECTS) $(BONUS_OBJECTS)
-
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ 	# $<: The first prerequisite (the source file).
+									# $@: The target file (the object file).
+									# -c: Compiles the source file without linking.
+									# -o: Specifies the output file name (the object file).
 
-test: $(OBJECTS)
-	$(CC) $(CFLAGS) -o test $(OBJECTS)
-	./test
-	
 clean:
 	rm -f $(OBJECTS) $(BONUS_OBJECTS)
 
