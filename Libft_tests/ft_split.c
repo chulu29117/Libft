@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:53:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 10:15:12 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:45:29 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,98 +38,157 @@ char	**ft_split(char const *s, char c)
 	return (split);
 }
 
-// Test for ft_split
+// Test for ft_split /////////////////////////////////////////////////
 #include <stdio.h>
+
+void test_case_1()
+{
+    char	**split;
+    int		i;
+
+    split = ft_split("Hello Good Morning World This is a Test", ' ');
+	printf("Test case 1:\n");
+    i = 0;
+    while (split[i])
+    {
+        printf("%s\n", split[i]);
+        i++;
+    }
+    ft_freearray(split, i);
+    printf("\n");
+}
+
+void test_case_2()
+{
+    char	**split;
+    int		i;
+
+    split = ft_split("hello!", ' ');
+	printf("Test case 2:\n");
+    i = 0;
+    while (split[i])
+    {
+        printf("%s\n", split[i]);
+        i++;
+    }
+    ft_freearray(split, i);
+    printf("\n");
+}
+
+void test_case_3()
+{
+    char	**split;
+
+    split = ft_split("", ' ');
+	printf("Test case 3:\n");
+    if (split[0] == NULL)
+        printf("Empty string test passed\n");
+    ft_freearray(split, 0);
+    printf("\n");
+}
+
+void test_case_4()
+{
+    char	**split;
+
+    split = ft_split("     ", ' ');
+	printf("Test case 4:\n");
+    if (split[0] == NULL)
+        printf("Only delimiters test passed\n");
+    ft_freearray(split, 0);
+    printf("\n");
+}
+
+void test_case_5()
+{
+    char	**split;
+    int		i;
+
+    split = ft_split("   Leading spaces", ' ');
+	printf("Test case 5:\n");
+    i = 0;
+    while (split[i])
+    {
+        printf("%s\n", split[i]);
+        i++;
+    }
+    ft_freearray(split, i);
+    printf("\n");
+}
+
+void test_case_6()
+{
+    char	**split;
+    int		i;
+
+    split = ft_split("Trailing spaces   ", ' ');
+	printf("Test case 6:\n");
+    i = 0;
+    while (split[i])
+    {
+        printf("%s\n", split[i]);
+        i++;
+    }
+    ft_freearray(split, i);
+    printf("\n");
+}
+
+void test_case_7()
+{
+    char	**split;
+    int		i;
+
+    split = ft_split("Multiple   spaces   between   words", ' ');
+	printf("Test case 7:\n");
+    i = 0;
+    while (split[i])
+    {
+        printf("%s\n", split[i]);
+        i++;
+    }
+    ft_freearray(split, i);
+    printf("\n");
+}
+
+void test_case_8()
+{
+    char	**split;
+    int		i;
+
+    split = ft_split("Comma,separated,values", ',');
+	printf("Test case 8:\n");
+    i = 0;
+    while (split[i])
+    {
+        printf("%s\n", split[i]);
+        i++;
+    }
+    ft_freearray(split, i);
+    printf("\n");
+}
+
+void test_case_9()
+{
+    char	**split;
+
+    split = ft_split(NULL, ' ');
+	printf("Test case 9:\n");
+    if (split == NULL)
+        printf("NULL string test passed\n");
+}
 
 int	main(void)
 {
-	char	**split;
-	int		i;
-
-	// Test case 1: Normal case with spaces
-	split = ft_split("Hello Good Morning World This is a Test", ' ');
-	i = 0;
-	while (split[i])
-	{
-		printf("%s\n", split[i]);
-		i++;
-	}
-	ft_freearray(split, i);
-	printf("\n");
-
-	// Test case 2: Single word
-	split = ft_split("hello!", ' ');
-	i = 0;
-	while (split[i])
-	{
-		printf("%s\n", split[i]);
-		i++;
-	}
-	ft_freearray(split, i);
-	printf("\n");
-
-	// Test case 3: Empty string
-	split = ft_split("", ' ');
-	if (split[0] == NULL)
-		printf("Empty string test passed\n");
-	ft_freearray(split, 0);
-	printf("\n");
-
-	// Test case 4: String with only delimiters
-	split = ft_split("     ", ' ');
-	if (split[0] == NULL)
-		printf("Only delimiters test passed\n");
-	ft_freearray(split, 0);
-	printf("\n");
-
-	// Test case 5: String with leading delimiters
-	split = ft_split("   Leading spaces", ' ');
-	i = 0;
-	while (split[i])
-	{
-		printf("%s\n", split[i]);
-		i++;
-	}
-	ft_freearray(split, i);
-	printf("\n");
-
-	// Test case 6: String with trailing delimiters
-	split = ft_split("Trailing spaces   ", ' ');
-	i = 0;
-	while (split[i])
-	{
-		printf("%s\n", split[i]);
-		i++;
-	}
-	ft_freearray(split, i);
-	printf("\n");
-
-	// Test case 7: String with multiple consecutive delimiters
-	split = ft_split("Multiple   spaces   between   words", ' ');
-	i = 0;
-	while (split[i])
-	{
-		printf("%s\n", split[i]);
-		i++;
-	}
-	ft_freearray(split, i);
-	printf("\n");
-
-	// Test case 8: String with different delimiter
-	split = ft_split("Comma,separated,values", ',');
-	i = 0;
-	while (split[i])
-	{
-		printf("%s\n", split[i]);
-		i++;
-	}
-	ft_freearray(split, i);
-	printf("\n");
-
-	// Test case 9: NULL string
-	split = ft_split(NULL, ' ');
-	if (split == NULL)
-		printf("NULL string test passed\n");
+    test_case_1();
+    test_case_2();
+    test_case_3();
+    test_case_4();
+    test_case_5();
+    test_case_6();
+    test_case_7();
+    test_case_8();
+    test_case_9();
+    return (0);
 }
 
 /// Helper functions ///

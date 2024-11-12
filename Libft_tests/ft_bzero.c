@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:54:17 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 14:24:43 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:43:22 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_bzero(void *s, size_t n)
 		ptr[i++] = 0;
 }
 
-// Test for ft_bzero //
+// Test for ft_bzero /////////////////////////////////////////////////
 #include <stdio.h>
 #include <strings.h> // For bzero
 // Helper function to print buffer

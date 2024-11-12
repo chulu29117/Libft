@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:37:22 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 14:26:10 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:43:13 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_atoi(const char *str)
 	return ((int)(res * sign));
 }
 
-// Test for ft_atoi
+// Test for ft_atoi /////////////////////////////////////////////////
 #include <stdio.h>
 #include <stdlib.h>
 

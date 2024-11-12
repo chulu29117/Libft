@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:57:03 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 09:52:06 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:44:15 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ char	*ft_itoa(int n)
 	return (str);	
 }
 
-// Test for ft_itoa
+// Test for ft_itoa /////////////////////////////////////////////////
+#include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 
 int	main(void)
 {

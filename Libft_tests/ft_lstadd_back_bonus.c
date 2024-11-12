@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:56:45 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 09:52:00 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:44:23 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	last -> next = new;			// Set the next of the last node to the new node
 }
 
-// Test for ft_lstadd_back
+// Test for ft_lstadd_back /////////////////////////////////////////////////
 #include <stdio.h>
 int main(void)
 {

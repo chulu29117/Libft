@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:23:47 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 10:30:05 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:53:28 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,54 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	}
 }
 
-// Test for ft_striteri
+// Test for ft_striteri /////////////////////////////////////////////////
 #include <stdio.h>
 
-void	ft_striteri_test(unsigned int i, char *c)
+void	ft_striteri_to_upper(unsigned int i, char *c)
 {
-	*c = (*c + i) % 128;	// Add i to the ASCII value of the char
+    (void)i;
+	if (*c >= 'a' && *c <= 'z')
+        *c = *c - 32;
+}
+
+// Test case 1: Normal string
+void test_ft_striteri1()
+{
+	char str[] = "ABCDEF";
+	ft_striteri(str, &ft_striteri_to_upper);
+	printf("Test case 1:\nOriginal: ABCDEF\nModified: %s\n\n", str);
+}
+
+// Test case 2: Empty string
+void test_ft_striteri2()
+{
+    char str[] = "";
+    ft_striteri(str, &ft_striteri_to_upper);
+    printf("Test case 2:\nOriginal: (empty string)\nModified: %s\n\n", str);
+}
+
+// Test case 3: String with special characters
+void test_ft_striteri3()
+{
+    char str[] = "Hello World !";
+    ft_striteri(str, &ft_striteri_to_upper);
+    printf("Test case 3:\nOriginal: Hello World !\nModified: %s\n\n", str);
+}
+
+// Test case 4: NULL string
+void test_ft_striteri4()
+{
+    char *str = NULL;
+    ft_striteri(str, &ft_striteri_to_upper);
+    printf("Test case 4:\nOriginal: (NULL string)\nModified: (NULL string)\n\n");
 }
 
 int		main(void)
 {
-	char str[] = "ABCDEF";
-	ft_striteri(str, &ft_striteri_test);
-	printf("Original: ABCDEF\n");
-	printf("Modified: %s\n", str);
+	test_ft_striteri1();
+	test_ft_striteri2();
+	test_ft_striteri3();
+	test_ft_striteri4();
 	return (0);
 }
+/////////////////////////////////////////////////////////////////////////////

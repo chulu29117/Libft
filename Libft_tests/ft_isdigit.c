@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 12:26:38 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 18:57:56 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:43:57 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ int	ft_isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
+// Test for ft_isdigit /////////////////////////////////////////////////
 #include <stdio.h>
-// Test for ft_isdigit
+
 int	main(void)
 {
 	printf("ft_isdigit('Q') = %d\n", ft_isdigit('Q'));

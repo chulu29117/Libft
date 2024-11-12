@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 15:28:21 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 10:33:51 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:54:23 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,36 +32,72 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
+// Test for ft_strjoin /////////////////////////////////////////////////
 #include <stdio.h>
-// Test for ft_strjoin
-int	main(void)
-{
-	char	*s1 = "Hello";
-	char	*s2 = " World";
-	char	*res;
+#include <string.h>
+#include <stdlib.h>
 
-	res = ft_strjoin(s1, s2);
-	printf("s1: %s s2: %s\n", s1, s2);
-	printf("Result: %s\n", res);
-	free(res);
-	return (0);
+void test_ft_strjoin1()
+{
+    // Test case 1: Both strings are empty
+    const char *s1 = "";
+    const char *s2 = "";
+    char *result_ft = ft_strjoin(s1, s2);
+    char *result_std = strcat(strdup(s1), s2);
+    printf("Test case 1:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
+    printf("Match: %s\n\n", (strcmp(result_ft, result_std) == 0) ? "Yes" : "No");
+    free(result_ft);
+    free(result_std);
 }
 
-// Built-in strjoin
-// #include <string.h>
-// int	main(void)
-// {
-// 	char	*s1 = "Hello";
-// 	char	*s2 = " World";
-// 	char	*res;
-//
-// 	res = strdup(s1);
-// 	strcat(res, s2);
-// 	printf("s1: %s s2: %s\n", s1, s2);
-// 	printf("Result: %s\n", res);
-// 	free(res);
-// 	return (0);
-// }
+void test_ft_strjoin2()
+{
+    // Test case 2: First string is empty
+    const char *s1 = "";
+    const char *s2 = "World";
+    char *result_ft = ft_strjoin(s1, s2);
+    char *result_std = strcat(strdup(s1), s2);
+    printf("Test case 2:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
+    printf("Match: %s\n\n", (strcmp(result_ft, result_std) == 0) ? "Yes" : "No");
+    free(result_ft);
+    free(result_std);
+}
+
+void test_ft_strjoin3()
+{
+    // Test case 3: Second string is empty
+    const char *s1 = "Hello";
+    const char *s2 = "";
+    char *result_ft = ft_strjoin(s1, s2);
+    char *result_std = strcat(strdup(s1), s2);
+    printf("Test case 3:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
+    printf("Match: %s\n\n", (strcmp(result_ft, result_std) == 0) ? "Yes" : "No");
+    free(result_ft);
+    free(result_std);
+}
+
+void test_ft_strjoin4()
+{
+    // Test case 4: Both strings are non-empty
+    const char *s1 = "Hello";
+    const char *s2 = " World";
+    char *result_ft = ft_strjoin(s1, s2);
+    char *result_std = strcat(strdup(s1), s2);
+    printf("Test case 4:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
+    printf("Match: %s\n\n", (strcmp(result_ft, result_std) == 0) ? "Yes" : "No");
+    free(result_ft);
+    free(result_std);
+}
+
+int	main(void)
+{
+    test_ft_strjoin1();
+    test_ft_strjoin2();
+    test_ft_strjoin3();
+    test_ft_strjoin4();
+    return (0);
+}
+/////////////////////////////////////////////////////////////////////////////
 
 // Helper functions //
 size_t	ft_strlen(const char *str)

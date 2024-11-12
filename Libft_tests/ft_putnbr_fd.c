@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:00:56 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 10:14:15 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:45:17 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_putnbr_fd(int n, int fd)
 	ft_putchar_fd(n % 10 + '0', fd);
 }
 
-// Test for ft_putnbr_fd
+// Test for ft_putnbr_fd /////////////////////////////////////////////////
 int	main(void)
 {
 	ft_putnbr_fd(2147483647, 1);

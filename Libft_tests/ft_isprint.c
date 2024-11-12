@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:06:01 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 18:58:09 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:44:09 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ int	ft_isprint(int c)
 	return (c >= 32 && c <= 126);
 }
 
+// Test for ft_isprint /////////////////////////////////////////////////
 #include <stdio.h>
-// Test for ft_isprint
+
 int	main(void)
 {
 	printf("ft_isprint('Q') = %d\n", ft_isprint('Q'));

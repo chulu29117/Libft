@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:08:36 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 14:44:41 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:43:41 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_isalpha(int c)
 	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
 
-// Test for ft_isalpha //
+// Test for ft_isalpha /////////////////////////////////////////////////
 #include <stdio.h>
 #include <ctype.h> // For isalpha
 

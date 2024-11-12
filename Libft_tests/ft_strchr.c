@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 11:23:39 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 14:00:55 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:46:00 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,46 +31,59 @@ char	*ft_strchr(const char *s, int c)
 	return (0);
 }
 
+// Test for ft_strchr /////////////////////////////////////////////////
 #include <stdio.h>
-// Test for ft_strchr
+#include <string.h>
 
-void test_functions(void)
+void test_ft_strchr1()
 {
-	char *string = "Hello, World!";
-	char *result;
+    // Test case 1: Character is present in the string
+    const char *str = "Hello, World!";
+    char ch = 'W';
+    char *result_ft = ft_strchr(str, ch);
+    char *result_std = strchr(str, ch);
+    printf("Test case 1:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
+    printf("Match: %s\n\n", (result_ft == result_std) ? "Yes" : "No");
+}
 
-	// Test case 1: Search for 'o' in the string
-	result = ft_strchr(string, 'o');
-	printf("Test case 1: String after |%c| is - |%s|\n", 'o', result);
+void test_ft_strchr2()
+{
+    // Test case 2: Character is not present in the string
+    const char *str = "Hello, World!";
+    char ch = 'x';
+    char *result_ft = ft_strchr(str, ch);
+    char *result_std = strchr(str, ch);
+    printf("Test case 2:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
+    printf("Match: %s\n\n", (result_ft == result_std) ? "Yes" : "No");
+}
 
-	// Test case 2: Search for 'z' in the string
-	result = ft_strchr(string, 'z');
-	printf("Test case 2: String after |%c| is - |%s|\n", 'z', result);
+void test_ft_strchr3()
+{
+    // Test case 3: Character is the null terminator
+    const char *str = "Hello, World!";
+    char ch = '\0';
+    char *result_ft = ft_strchr(str, ch);
+    char *result_std = strchr(str, ch);
+    printf("Test case 3:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
+    printf("Match: %s\n\n", (result_ft == result_std) ? "Yes" : "No");
+}
 
-	// Test case 3: Search for '\0' in the string
-	result = ft_strchr(string, '\0');
-	printf("Test case 3: String after |%c| is - |%s|\n", '\0', result);
-
-	// Test case 4: Search for 'H' in the string
-	result = ft_strchr(string, 'H');
-	printf("Test case 4: String after |%c| is - |%s|\n", 'H', result);
+void test_ft_strchr4()
+{
+    // Test case 4: Empty string
+    const char *str = "";
+    char ch = 'H';
+    char *result_ft = ft_strchr(str, ch);
+    char *result_std = strchr(str, ch);
+    printf("Test case 4:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
+    printf("Match: %s\n\n", (result_ft == result_std) ? "Yes" : "No");
 }
 
 int main(void)
 {
-	test_functions();
-	return 0;
+    test_ft_strchr1();
+    test_ft_strchr2();
+    test_ft_strchr3();
+    test_ft_strchr4();
+    return (0);
 }
-
-// Built in strchr
-// #include <string.h>
-
-// int	main(void)
-// {
-// 	char *string = "Hello, World!";
-// 	char *result;
-
-// 	result = strchr(string, 'o');
-// 	printf("String after |%c| is - |%s|\n", 'o', result);
-// 	return (0);
-// }

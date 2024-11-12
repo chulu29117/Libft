@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:50:04 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 10:14:30 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:45:20 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_putstr_fd(char *s, int fd)
 	write(fd, s, ft_strlen(s));
 }
 
-// Test for ft_putstr_fd
+// Test for ft_putstr_fd /////////////////////////////////////////////////
 int	main(void)
 {
 	ft_putstr_fd("Hello, world!\n", 1);

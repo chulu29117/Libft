@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:01:51 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 14:42:04 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:43:37 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_isalnum(int c)
 	return (0);
 }
 
-// Test for ft_isalnum //
+// Test for ft_isalnum /////////////////////////////////////////////////
 #include <stdio.h>
 #include <ctype.h> // For isalnum
 

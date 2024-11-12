@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 12:00:47 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 10:26:53 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:43:02 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,33 +29,67 @@ char	*ft_strdup(const char *s1)
 	return (ptr);
 }
 
-// Test for ft_strdup
+// Test for ft_strdup /////////////////////////////////////////////////
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void test_ft_strdup1()
+{
+	// Test case 1: String is empty
+	const char *str = "";
+	char *result_ft = ft_strdup(str);
+	char *result_std = strdup(str);
+	printf("Test case 1:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
+	printf("Match: %s\n\n", (strcmp(result_ft, result_std) == 0) ? "Yes" : "No");
+	free(result_ft);
+	free(result_std);
+}
+
+void test_ft_strdup2()
+{
+	// Test case 2: String is not empty
+	const char *str = "Hello, World!";
+	char *result_ft = ft_strdup(str);
+	char *result_std = strdup(str);
+	printf("Test case 2:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
+	printf("Match: %s\n\n", (strcmp(result_ft, result_std) == 0) ? "Yes" : "No");
+	free(result_ft);
+	free(result_std);
+}
+
+void test_ft_strdup3()
+{
+	// Test case 3: String is a single character
+	const char *str = "H";
+	char *result_ft = ft_strdup(str);
+	char *result_std = strdup(str);
+	printf("Test case 3:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
+	printf("Match: %s\n\n", (strcmp(result_ft, result_std) == 0) ? "Yes" : "No");
+	free(result_ft);
+	free(result_std);
+}
+
+void test_ft_strdup4()
+{
+	// Test case 4: String is a single character
+	const char *str = "H";
+	char *result_ft = ft_strdup(str);
+	char *result_std = strdup(str);
+	printf("Test case 4:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
+	printf("Match: %s\n\n", (strcmp(result_ft, result_std) == 0) ? "Yes" : "No");
+	free(result_ft);
+	free(result_std);
+}
 
 int	main(void)
 {
-	char	*str = "Hello, World!";
-	char	*res;
-
-	res = ft_strdup(str);
-	printf("Original string: %s\n", str);
-	printf("Duplicated string: %s\n", res);
-	free(res);
+	test_ft_strdup1();
+	test_ft_strdup2();
+	test_ft_strdup3();
+	test_ft_strdup4();
 	return (0);
 }
-
-// Built-in strdup
-// #include <string.h>
-// int	main(void)
-// {
-// 	char	*str = "Hello, World!";
-// 	char	*res;
-//
-// 	res = strdup(str);
-// 	printf("Original string: %s\n", str);
-// 	printf("Duplicated string: %s\n", res);
-// 	return (0);
-// }
 
 // Helper functions //
 size_t	ft_strlen(const char *str)

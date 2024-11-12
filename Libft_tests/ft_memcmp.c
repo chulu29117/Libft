@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:34:07 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 10:02:35 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:44:43 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,41 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	return (0);
 }
 
+// Test for ft_memcmp /////////////////////////////////////////////////
 #include <stdio.h>
-// Test for ft_memcmp
-int	main(void)
-{
-	char		*str1 = "Hello, World!";
-	char		*str2 = "World!";
-	size_t	n = 13;
+#include <string.h>
 
-	printf("ft_memcmp: %d\n", ft_memcmp(str1, str2, n));
-	return (0);
+void	test_memcmp()
+{
+    char str1[] = "Hello, World!";
+    char str2[] = "Hello, World!";
+    char str3[] = "Hello, world!";
+    char str4[] = "Hello, Wxrld!";
+    size_t n = 13;
+
+    int result1_ft = ft_memcmp(str1, str2, n);
+    int result1_std = memcmp(str1, str2, n);
+    printf("ft_memcmp(str1, str2, %zu) = %d, memcmp(str1, str2, %zu) = %d, Match: %s\n",
+           n, result1_ft, n, result1_std, (result1_ft == result1_std) ? "Yes" : "No");
+
+    int result2_ft = ft_memcmp(str1, str3, n);
+    int result2_std = memcmp(str1, str3, n);
+    printf("ft_memcmp(str1, str3, %zu) = %d, memcmp(str1, str3, %zu) = %d, Match: %s\n",
+           n, result2_ft, n, result2_std, (result2_ft == result2_std) ? "Yes" : "No");
+
+    int result3_ft = ft_memcmp(str1, str4, n);
+    int result3_std = memcmp(str1, str4, n);
+    printf("ft_memcmp(str1, str4, %zu) = %d, memcmp(str1, str4, %zu) = %d, Match: %s\n",
+           n, result3_ft, n, result3_std, (result3_ft == result3_std) ? "Yes" : "No");
+
+    int result4_ft = ft_memcmp(str3, str4, n);
+    int result4_std = memcmp(str3, str4, n);
+    printf("ft_memcmp(str3, str4, %zu) = %d, memcmp(str3, str4, %zu) = %d, Match: %s\n",
+           n, result4_ft, n, result4_std, (result4_ft == result4_std) ? "Yes" : "No");
 }
 
-// Built-in memcmp
-// #include <string.h>
-// int	main(void)
-// {
-// 	char		*str1 = "Hello, World!";
-// 	char		*str2 = "World!";
-// 	size_t	n = 13;
-//
-// 	printf("memcmp: %d\n", memcmp(str1, str2, n));
-// 	return (0);
-// }
-	
+int	main(void)
+{
+    test_memcmp();
+    return (0);
+}

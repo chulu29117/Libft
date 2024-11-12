@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:48:11 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 18:57:32 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 15:43:50 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ int	ft_isascii(int c)
 	return (0);
 }
 
+// Test for ft_isascii /////////////////////////////////////////////////
 #include <stdio.h>
-// Test for ft_isascii
+
 int	main(void)
 {
 	printf("ft_isascii('Q') = %d\n", ft_isascii('Q'));
