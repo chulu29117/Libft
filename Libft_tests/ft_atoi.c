@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:37:22 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 09:52:58 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 14:26:10 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,83 +46,44 @@ int	ft_atoi(const char *str)
 
 // Test for ft_atoi
 #include <stdio.h>
+#include <stdlib.h>
 
-int	main(void)
+// Helper function to compare ft_atoi and atoi
+void compare_atoi(const char *str)
 {
-	char	*str1 = "2532452452345345";
-	char	*str2 = "-2532452452345345";
-	char	*str3 = "2147483647"; // INT_MAX
-	char	*str4 = "-2147483648"; // INT_MIN
-	char	*str5 = "42";
-	char	*str6 = "   -42";
-	char	*str7 = "4193 with words";
-	char	*str8 = "words and 987";
-	char	*str9 = "-91283472332";
-	char	*str10 = "91283472332";
-	int		result;
+    int result_ft_atoi = ft_atoi(str);
+    int result_atoi = atoi(str);
 
-	result = ft_atoi(str1);
-	printf("Result for \"%s\": %d\n", str1, result);
-	result = ft_atoi(str2);
-	printf("Result for \"%s\": %d\n", str2, result);
-	result = ft_atoi(str3);
-	printf("Result for \"%s\": %d\n", str3, result);
-	result = ft_atoi(str4);
-	printf("Result for \"%s\": %d\n", str4, result);
-	result = ft_atoi(str5);
-	printf("Result for \"%s\": %d\n", str5, result);
-	result = ft_atoi(str6);
-	printf("Result for \"%s\": %d\n", str6, result);
-	result = ft_atoi(str7);
-	printf("Result for \"%s\": %d\n", str7, result);
-	result = ft_atoi(str8);
-	printf("Result for \"%s\": %d\n", str8, result);
-	result = ft_atoi(str9);
-	printf("Result for \"%s\": %d\n", str9, result);
-	result = ft_atoi(str10);
-	printf("Result for \"%s\": %d\n", str10, result);
-
-	return (0);
+    printf("Input: \"%s\"\n", str);
+    printf("ft_atoi: %d\n", result_ft_atoi);
+    printf("atoi:    %d\n", result_atoi);
+    printf("Match:   %s\n\n", (result_ft_atoi == result_atoi) ? "Yes" : "No");
 }
 
-// Built-in atoi
-// int	main(void)
-// {
-// 	char	*str1 = "2532452452345345";
-// 	char	*str2 = "-2532452452345345";
-// 	char	*str3 = "2147483647"; // INT_MAX
-// 	char	*str4 = "-2147483648"; // INT_MIN
-// 	char	*str5 = "42";
-// 	char	*str6 = "   -42";
-// 	char	*str7 = "4193 with words";
-// 	char	*str8 = "words and 987";
-// 	char	*str9 = "-91283472332";
-// 	char	*str10 = "91283472332";
-// 	int		result;
+// Test function for ft_atoi
+void test_ft_atoi(void)
+{
+    compare_atoi("42");
+    compare_atoi("   -42");
+    compare_atoi("4193 with words");
+    compare_atoi("words and 987");
+    compare_atoi("-91283472332");
+    compare_atoi("2147483647");
+    compare_atoi("-2147483648");
+    compare_atoi("2147483648");
+    compare_atoi("-2147483649");
+    compare_atoi("0");
+    compare_atoi("   +0");
+    compare_atoi("   +123");
+    compare_atoi("   -123");
+    compare_atoi("   123abc456");
+}
 
-// 	result = atoi(str1);
-// 	printf("Result for \"%s\": %d\n", str1, result);
-// 	result = atoi(str2);
-// 	printf("Result for \"%s\": %d\n", str2, result);
-// 	result = atoi(str3);
-// 	printf("Result for \"%s\": %d\n", str3, result);
-// 	result = atoi(str4);
-// 	printf("Result for \"%s\": %d\n", str4, result);
-// 	result = atoi(str5);
-// 	printf("Result for \"%s\": %d\n", str5, result);
-// 	result = atoi(str6);
-// 	printf("Result for \"%s\": %d\n", str6, result);
-// 	result = atoi(str7);
-// 	printf("Result for \"%s\": %d\n", str7, result);
-// 	result = atoi(str8);
-// 	printf("Result for \"%s\": %d\n", str8, result);
-// 	result = atoi(str9);
-// 	printf("Result for \"%s\": %d\n", str9, result);
-// 	result = atoi(str10);
-// 	printf("Result for \"%s\": %d\n", str10, result);
-
-// 	return (0);
-// }
+int main(void)
+{
+    test_ft_atoi();
+    return 0;
+}
 
 // Helper functions //
 int	ft_isdigit(int c)

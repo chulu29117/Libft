@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:16:20 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 10:20:11 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 14:28:16 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,37 +36,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 #include <stdio.h>
 // Test for ft_calloc
-int	main(void)
-{
-	int		*ptr;
-	int		i;
-	int		n;
 
-	n = 5;
-	ptr = (int *)ft_calloc(n, sizeof(int));
-	i = 0;
-	while (i < n)
-		printf("%d\n", ptr[i++]);
-	// free memory
-	free(ptr);
-	return (0);
-}
 
-// Built-in calloc
-// #include <stdlib.h>
-// int	main(void)
-// {
-// 	int		*ptr;
-// 	int		i;
-// 	int		n;
-
-// 	n = 5;
-// 	ptr = (int *)calloc(n, sizeof(int));
-// 	i = 0;
-// 	while (i < n)
-// 		printf("%d\n", ptr[i++]);
-// 	return (0);
-// }
 
 // Helper function //
 void	ft_bzero(void *s, size_t n)
