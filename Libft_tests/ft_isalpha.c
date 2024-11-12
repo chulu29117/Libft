@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:08:36 by clu               #+#    #+#             */
-/*   Updated: 2024/11/04 18:56:28 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 14:44:41 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,27 @@ int	ft_isalpha(int c)
 	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
 
+// Test for ft_isalpha //
 #include <stdio.h>
-// Test for ft_isalpha
-int	main(void)
+#include <ctype.h> // For isalpha
+
+void test_ft_isalpha()
 {
-	printf("ft_isalpha('Q') = %d\n", ft_isalpha('Q'));
-	printf("ft_isalpha('7') = %d\n", ft_isalpha('7'));
-	printf("ft_isalpha('Y') = %d\n", ft_isalpha('Y'));
-	printf("ft_isalpha('@') = %d\n", ft_isalpha('@'));
-	return (0);
+    char test_chars[] = {'a', 'Z', '5', '!', ' ', 'b', 'G'};
+    size_t i = 0;
+    while (i < sizeof(test_chars))
+    {
+        int result_ft = ft_isalpha(test_chars[i]);
+        int result_std = isalpha(test_chars[i]);
+        printf("ft_isalpha('%c') = %d, isalpha('%c') = %d, Match: %s\n",
+               test_chars[i], result_ft, test_chars[i], result_std,
+               (result_ft == result_std) ? "Yes" : "No");
+        i++;
+    }
 }
 
-// Built-in isalpha
-// #include <ctype.h>
-// int	main(void)
-// {
-// 	printf("isalpha('Q') = %d\n", isalpha('Q'));
-// 	printf("isalpha('7') = %d\n", isalpha('7'));
-// 	printf("isalpha('Y') = %d\n", isalpha('Y'));
-// 	printf("isalpha('@') = %d\n", isalpha('@'));
-// 	return (0);
-// }
+int main()
+{
+    test_ft_isalpha();
+    return 0;
+}

@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:01:51 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 09:52:16 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 14:42:04 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,30 @@ int	ft_isalnum(int c)
 	return (0);
 }
 
+// Test for ft_isalnum //
 #include <stdio.h>
-// Test for ft_isalnum
-int	main(void)
+#include <ctype.h> // For isalnum
+
+void test_ft_isalnum()
 {
-	printf("ft_isalnum('Q') = %d\n", ft_isalnum('Q'));
-	printf("ft_isalnum('7') = %d\n", ft_isalnum('7'));
-	printf("ft_isalnum(' ') = %d\n", ft_isalnum(' '));
-	printf("ft_isalnum('@') = %d\n", ft_isalnum('@'));
-	return (0);
+    char test_chars[] = {'a', 'Z', '5', '!', ' ', '0', '9', 'b', 'G'};
+    size_t i = 0;
+    while (i < sizeof(test_chars))
+    {
+        int result_ft = ft_isalnum(test_chars[i]);
+        int result_std = isalnum(test_chars[i]);
+        printf("ft_isalnum('%c') = %d, isalnum('%c') = %d, Match: %s\n",
+               test_chars[i], result_ft, test_chars[i], result_std,
+               (result_ft == result_std) ? "Yes" : "No");
+        i++;
+    }
 }
 
-// Built-in isalnum
-// #include <ctype.h>
-// int	main(void)
-// {
-// 	printf("isalnum('Q') = %d\n", isalnum('Q'));
-// 	printf("isalnum('7') = %d\n", isalnum('7'));
-// 	printf("isalnum(' ') = %d\n", isalnum(' '));
-// 	printf("isalnum('@') = %d\n", isalnum('@'));
-// 	return (0);
-// }
+int main()
+{
+    test_ft_isalnum();
+    return 0;
+}
 
 // Helper functions for ft_isalnum //
 int	ft_isalpha(int c)

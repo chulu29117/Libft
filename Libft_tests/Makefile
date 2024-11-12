@@ -6,7 +6,7 @@
 #    By: clu <clu@student.hive.fi>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 15:08:55 by clu               #+#    #+#              #
-#    Updated: 2024/11/12 09:40:33 by clu              ###   ########.fr        #
+#    Updated: 2024/11/12 14:38:17 by clu              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ $(NAME): $(OBJECTS)
 # Compile and run tests for the Libft library with bonus functions.
 bonus: $(OBJECTS) $(BONUS_OBJECTS)
 	@ar rcs $(NAME) $(OBJECTS) $(BONUS_OBJECTS)
+
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ 	# $<: The first prerequisite (the source file).
 									# $@: The target file (the object file).

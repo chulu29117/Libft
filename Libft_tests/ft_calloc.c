@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 15:16:20 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 14:28:16 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/12 14:35:56 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,61 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	return (ptr);
 }
 
-#include <stdio.h>
 // Test for ft_calloc
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
+// Helper function to compare ft_calloc and calloc
+void compare_calloc(size_t count, size_t size)
+{
+    void *result_ft_calloc = ft_calloc(count, size);
+    void *result_calloc = calloc(count, size);
 
+    printf("Count: %zu, Size: %zu\n", count, size);
+    printf("ft_calloc: ");
+    size_t i = 0;
+	// Print the memory addresses of the allocated memory with ft_calloc
+    while (i < count * size)
+    {
+        printf("%d ", ((unsigned char *)result_ft_calloc)[i]);
+        i++;
+    }
+    printf("\n");
+
+    printf("calloc:    ");
+    i = 0;
+	// Print the memory addresses of the allocated memory with calloc
+    while (i < count * size)
+    {
+        printf("%d ", ((unsigned char *)result_calloc)[i]);
+        i++;
+    }
+    printf("\n");
+
+    printf("Match: %s\n\n", (memcmp(result_ft_calloc, result_calloc, count * size) == 0) ? "Yes" : "No");
+
+    free(result_ft_calloc);
+    free(result_calloc);
+}
+
+// Test function for ft_calloc
+void test_ft_calloc(void)
+{
+	compare_calloc(5, sizeof(int));
+	compare_calloc(10, sizeof(char));
+	compare_calloc(0, sizeof(int));
+	compare_calloc(5, 0);
+	compare_calloc(0, 0);
+	compare_calloc(1, 100);
+	compare_calloc(100, 1);
+}
+
+int main(void)
+{
+	test_ft_calloc();
+	return 0;
+}
 
 // Helper function //
 void	ft_bzero(void *s, size_t n)
