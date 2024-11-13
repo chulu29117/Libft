@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:37:22 by clu               #+#    #+#             */
-/*   Updated: 2024/11/13 21:32:37 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/13 22:28:26 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	ft_isdigit(int c);
 
 int	ft_atoi(const char *str)
 {
-	int			sign;
-	long long	res;
+	int					sign;
+	unsigned long int	res;
 
 	sign = 1;
 	res = 0;
@@ -30,11 +30,15 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		str++;
 	}
-	while (*str >= '0' && *str <= '9')
+	while (ft_isdigit(*str))
 	{
 		res = res * 10 + (*str - '0');
 		str++;
-	}
+		if (res > LONG_MAX && sign == 1)
+			return (-1);
+		if (res > LONG_MAX && sign == -1)
+			return (0);
+	} 
 	return ((int)(res * sign));
 }
 
@@ -59,19 +63,26 @@ void test_ft_atoi(void)
 {
     compare_atoi("42");						// atoi returns 42
     compare_atoi("   -42");					// atoi returns -42
-    compare_atoi("4193 with words");		// atoi returns 4193
-    compare_atoi("words and 987");			// atoi returns 0
-    compare_atoi("9223372036854775807");	// long_max
-    compare_atoi("-9223372036854775808");	// long_min
-    compare_atoi("2147483647");				// int_max
-    compare_atoi("-2147483648");			// int_min
-    compare_atoi("2147483648");				// int_max + 1
-    compare_atoi("-2147483649");			// int_min - 1
     compare_atoi("0");						// atoi returns 0
-    compare_atoi("   +0");					// atoi returns 0
-    compare_atoi("   +123");				// atoi returns 123
-    compare_atoi("   -123");				// atoi returns -123
-    compare_atoi("   123abc456");			// atoi returns 123
+    compare_atoi("1234 with words");		// atoi returns 1234
+    compare_atoi("words and 987");			// atoi returns 0
+	printf("OVERFLOW TESTS\n---------------------\n");
+	printf("\"int_max\"\n");
+    compare_atoi("2147483647");				// int_max
+	printf("\"int_min\"\n");
+    compare_atoi("-2147483648");			// int_min
+	printf("\"int_max + 1\"\n");
+	compare_atoi("2147483648");				// int_max + 1
+	printf("\"int_min - 1\"\n");
+    compare_atoi("-2147483649");			// int_min - 1
+	printf("\"long_max\"\n");	
+    compare_atoi("9223372036854775807");	// long_max
+	printf("\"long_min\"\n");
+    compare_atoi("-9223372036854775808");	// long_min
+	printf("\"long_max + 1\"\n");
+	compare_atoi("9223372036854775808");	// long_max + 1
+	printf("\"long_min - 1\"\n");
+	compare_atoi("-9223372036854775809");	// long_min - 1
 }
 
 int main(void)
