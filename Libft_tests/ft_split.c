@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:53:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 15:57:43 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/13 23:30:20 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 static size_t	count_words(char const *s, char c);
 static char		*get_next_word(char const *s, char c, size_t *i);
 static void		ft_freearray(char **split, size_t j);
-static void		write_split(char **split, char const *s, char c);
+static int		write_split(char **split, char const *s, char c);
 
 // ft_split splits the string s using the delimiter c and returns an array of strings.
 char	**ft_split(char const *s, char c)
@@ -34,8 +34,12 @@ char	**ft_split(char const *s, char c)
 	split = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!split)
 		return (NULL);
-	write_split(split, s, c);
-	return (split);
+	if (!write_split(split, s, c))		// Write the words to the split array
+	{
+		ft_freearray(split, words);		// Free the memory allocated for the split array if write_split fails
+		return (NULL);
+	}
+	return (split);						// Return the split array if successful
 }
 
 // Test for ft_split /////////////////////////////////////////////////
@@ -262,6 +266,22 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substr);
 }
 
+// Function to free the memory allocated for the split array
+static void	ft_freearray(char **split, size_t count)
+{
+	size_t	i;
+	
+	if (!split)
+		return ;
+	i = 0;
+	while (i < count)
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+
 // Function to count the number of words in the string separated by the delimiter
 static size_t	count_words(char const *s, char c)
 {
@@ -303,7 +323,7 @@ static char	*get_next_word(char const *s, char c, size_t *i)
 		end++;
 	// Extract the word using ft_substr
 	word = ft_substr(s, start, end - start);
-	if (!word)	// If the word is NULL, free the memory allocated
+	if (!word)		// If the word is NULL, free the memory allocated
 	{
 		*i = end;	// Update the index to the end of the current word
 		return (NULL);
@@ -312,22 +332,8 @@ static char	*get_next_word(char const *s, char c, size_t *i)
 	return (word);
 }
 
-// Function to free the memory allocated for the split array
-static void	ft_freearray(char **split, size_t j)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < j)
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
-}
-
 // Function to write the words to the split array
-static void	write_split(char **split, char const *s, char c)
+static int	write_split(char **split, char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -342,11 +348,15 @@ static void	write_split(char **split, char const *s, char c)
 			split[j] = get_next_word(s, c, &i);
 			// If the word is NULL, free the memory allocated
 			if (!split[j])
+			{
 				ft_freearray(split, j);
+				return (0);
+			}
 			j++;
 		}
 		else
 			i++;
 	}
 	split[j] = NULL;
+	return (1);
 }

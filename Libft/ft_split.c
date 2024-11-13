@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:51:38 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 14:50:19 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/13 23:58:00 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ char	**ft_split(char const *s, char c)
 	split = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!split)
 		return (NULL);
-	write_split(split, s, c);
+	if (!write_split(split, s, c))
+	{
+		ft_freearray(split, words);
+		return (NULL);
+	}
 	return (split);
 }
 
@@ -77,12 +81,14 @@ static char	*get_next_word(char const *s, char c, size_t *i)
 	return (word);
 }
 
-static void	ft_freearray(char **split, size_t j)
+static void	ft_freearray(char **split, size_t count)
 {
 	size_t	i;
 
+	if (!split)
+		return ;
 	i = 0;
-	while (i < j)
+	while (i < count)
 	{
 		free(split[i]);
 		i++;
@@ -105,7 +111,7 @@ static int	write_split(char **split, char const *s, char c)
 			if (!split[j])
 			{
 				ft_freearray(split, j);
-				return (-1);
+				return (0);
 			}
 			j++;
 		}
@@ -113,5 +119,5 @@ static int	write_split(char **split, char const *s, char c)
 			i++;
 	}
 	split[j] = NULL;
-	return (0);
+	return (1);
 }

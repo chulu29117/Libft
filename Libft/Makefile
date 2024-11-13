@@ -6,7 +6,7 @@
 #    By: clu <clu@student.hive.fi>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 15:08:55 by clu               #+#    #+#              #
-#    Updated: 2024/11/13 22:57:27 by clu              ###   ########.fr        #
+#    Updated: 2024/11/13 23:58:48 by clu              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,12 +33,9 @@ $(NAME): $(OBJECTS)
 	@echo "Linking library $(NAME)"
 	@ar rcs $(NAME) $(OBJECTS)
 
-bonus: .bonus
-
-.bonus: $(BONUS_OBJECTS)
+bonus: $(NAME) $(BONUS_OBJECTS)
 	@echo "Linking bonus library $(NAME)"
 	@ar rcs $(NAME) $(BONUS_OBJECTS)
-	@touch .bonus
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
