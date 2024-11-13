@@ -6,7 +6,7 @@
 #    By: clu <clu@student.hive.fi>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 15:08:55 by clu               #+#    #+#              #
-#    Updated: 2024/11/12 14:38:17 by clu              ###   ########.fr        #
+#    Updated: 2024/11/13 22:57:27 by clu              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,24 +29,22 @@ BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
 
 all: $(NAME)
 
-# Compile and run tests for the Libft library.
 $(NAME): $(OBJECTS)
-	@ar rcs $(NAME) $(OBJECTS) 		# ar: Archive utility used to create static libraries.
-		     						# r: Insert the files ($^) into the archive, replacing older files.
-		     						# c: Create the archive if it doesn't exist.
-									# s: Write an index to the archive, or update an existing index.
+	@echo "Linking library $(NAME)"
+	@ar rcs $(NAME) $(OBJECTS)
 
-# Compile and run tests for the Libft library with bonus functions.
-bonus: $(OBJECTS) $(BONUS_OBJECTS)
-	@ar rcs $(NAME) $(OBJECTS) $(BONUS_OBJECTS)
+bonus: .bonus
+
+.bonus: $(BONUS_OBJECTS)
+	@echo "Linking bonus library $(NAME)"
+	@ar rcs $(NAME) $(BONUS_OBJECTS)
+	@touch .bonus
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ 	# $<: The first prerequisite (the source file).
-									# $@: The target file (the object file).
-									# -c: Compiles the source file without linking.
-									# -o: Specifies the output file name (the object file).
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
+	@echo "Cleaning object files"
 	rm -f $(OBJECTS) $(BONUS_OBJECTS)
 
 fclean: clean

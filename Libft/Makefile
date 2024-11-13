@@ -6,7 +6,7 @@
 #    By: clu <clu@student.hive.fi>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 15:08:55 by clu               #+#    #+#              #
-#    Updated: 2024/11/12 09:38:34 by clu              ###   ########.fr        #
+#    Updated: 2024/11/13 22:57:27 by clu              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,15 +30,21 @@ BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
+	@echo "Linking library $(NAME)"
 	@ar rcs $(NAME) $(OBJECTS)
 
-bonus: $(OBJECTS) $(BONUS_OBJECTS)
-	@ar rcs $(NAME) $(OBJECTS) $(BONUS_OBJECTS)
+bonus: .bonus
+
+.bonus: $(BONUS_OBJECTS)
+	@echo "Linking bonus library $(NAME)"
+	@ar rcs $(NAME) $(BONUS_OBJECTS)
+	@touch .bonus
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
+	@echo "Cleaning object files"
 	rm -f $(OBJECTS) $(BONUS_OBJECTS)
 
 fclean: clean
