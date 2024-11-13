@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:37:22 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 15:47:45 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/13 21:37:31 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int		sign;
-	long	res;
+	int			sign;
+	long long	res;
 
 	sign = 1;
 	res = 0;
@@ -27,14 +27,8 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		str++;
 	}
-	while (ft_isdigit(*str))
+	while (*str >= '0' && *str <= '9')
 	{
-		if (res > (INT_MAX - (*str - '0')) / 10)
-		{
-			if (sign == 1)
-				return (INT_MAX);
-			return (INT_MIN);
-		}
 		res = res * 10 + (*str - '0');
 		str++;
 	}
