@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:53:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/13 23:30:20 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/14 11:16:55 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	**ft_split(char const *s, char c)
 	split = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!split)
 		return (NULL);
-	if (!write_split(split, s, c))		// Write the words to the split array
+	if (!write_split(split, s, c))		// Write the words to the split array using the write_split function
 	{
 		ft_freearray(split, words);		// Free the memory allocated for the split array if write_split fails
 		return (NULL);
@@ -311,7 +311,6 @@ static char	*get_next_word(char const *s, char c, size_t *i)
 {
 	size_t	start;
 	size_t	end;
-	char	*word;
 
 	start = *i;
 	// Skip any delimiter characters at the start of the word
@@ -322,14 +321,10 @@ static char	*get_next_word(char const *s, char c, size_t *i)
 	while (s[end] && s[end] != c)
 		end++;
 	// Extract the word using ft_substr
-	word = ft_substr(s, start, end - start);
-	if (!word)		// If the word is NULL, free the memory allocated
-	{
-		*i = end;	// Update the index to the end of the current word
-		return (NULL);
-	}
-	*i = end; 		// Update the index to the end of the current word
-	return (word);
+	while (s[end] && s[end] != c)	// Skip the characters of the word
+		end++;
+	*i = end;						// Update the index i to the end of the word
+	return (ft_substr(s, start, end - start));	// Return the extracted word
 }
 
 // Function to write the words to the split array

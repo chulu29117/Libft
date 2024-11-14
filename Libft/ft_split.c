@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:51:38 by clu               #+#    #+#             */
-/*   Updated: 2024/11/13 23:58:00 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/14 11:28:01 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	count_words(char const *s, char c);
 static char		*get_next_word(char const *s, char c, size_t *i);
-static void		ft_freearray(char **split, size_t j);
+static void		ft_freearray(char **split, size_t count);
 static int		write_split(char **split, char const *s, char c);
 
 char	**ft_split(char const *s, char c)
@@ -43,18 +43,11 @@ static size_t	count_words(char const *s, char c)
 
 	words = 0;
 	i = 0;
-	while (s[i] && s[i] == c)
-		i++;
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		if (s[i] != c)
-		{
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 			words++;
-			while (s[i] && s[i] != c)
-				i++;
-		}
-		else
-			i++;
+		i++;
 	}
 	return (words);
 }
@@ -63,22 +56,17 @@ static char	*get_next_word(char const *s, char c, size_t *i)
 {
 	size_t	start;
 	size_t	end;
-	char	*word;
 
 	start = *i;
 	while (s[start] && s[start] == c)
 		start++;
+	if (!s[start])
+		return (NULL);
 	end = start;
 	while (s[end] && s[end] != c)
 		end++;
-	word = ft_substr(s, start, end - start);
-	if (!word)
-	{
-		*i = end;
-		return (NULL);
-	}
 	*i = end;
-	return (word);
+	return (ft_substr(s, start, end - start));
 }
 
 static void	ft_freearray(char **split, size_t count)
@@ -88,7 +76,7 @@ static void	ft_freearray(char **split, size_t count)
 	if (!split)
 		return ;
 	i = 0;
-	while (i < count)
+	while (i < count && split[i])
 	{
 		free(split[i]);
 		i++;
@@ -105,10 +93,10 @@ static int	write_split(char **split, char const *s, char c)
 	j = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 		{
 			split[j] = get_next_word(s, c, &i);
-			if (!split[j])
+			if (split[j] == NULL)
 			{
 				ft_freearray(split, j);
 				return (0);
