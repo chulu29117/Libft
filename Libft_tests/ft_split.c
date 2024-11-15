@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:53:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/14 11:16:55 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/15 13:55:29 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -294,7 +294,7 @@ static size_t	count_words(char const *s, char c)
 		i++;
 	while (s[i] != '\0')
 	{
-		if (s[i] != c)
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 		{
 			words++;			// Increment word count when a non-delimiter character is found
 			while (s[i] && s[i] != c)
@@ -337,7 +337,7 @@ static int	write_split(char **split, char const *s, char c)
 	j = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 		{
 			// Extract the next word from the string
 			split[j] = get_next_word(s, c, &i);

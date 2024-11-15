@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 15:47:11 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 10:48:01 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/13 15:42:43 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int	main(void)
 {
-	char	*s1 = "***Hello, World!***";
-	char	*set = "*";
+	char	*s1 = "***!$!$Hello, World!*#!$**";
+	char	*set = "*#$!";
 	char	*result;
 
 	result = ft_strtrim(s1, set);

@@ -6,7 +6,7 @@
 #    By: clu <clu@student.hive.fi>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 15:08:55 by clu               #+#    #+#              #
-#    Updated: 2024/11/14 12:05:02 by clu              ###   ########.fr        #
+#    Updated: 2024/11/15 10:15:02 by clu              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,31 +26,30 @@ ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus
 
 OBJECTS = $(SOURCES:.c=.o)
 BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
-BONUS = .bonus
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	@echo "Linking library $(NAME)"
 	@ar rcs $(NAME) $(OBJECTS)
-	@ranlib $(NAME)
 
-bonus: $(BONUS)
+bonus: .bonus
 
-$(BONUS): $(BONUS_OBJECTS)
+.bonus: $(BONUS_OBJECTS)
 	@echo "Linking library $(NAME) with bonus objects"
 	@ar rcs $(NAME) $(BONUS_OBJECTS)
-	@ranlib $(NAME)
+	@touch .bonus
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@echo "Cleaning object files"
-	rm -f $(OBJECTS) $(BONUS_OBJECTS) $(BONUS)
+	@rm -f $(OBJECTS) $(BONUS_OBJECTS) .bonus
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "Cleaning library $(NAME)"
+	@rm -f $(NAME)
 
 re: fclean all
 

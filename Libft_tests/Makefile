@@ -6,7 +6,7 @@
 #    By: clu <clu@student.hive.fi>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 15:08:55 by clu               #+#    #+#              #
-#    Updated: 2024/11/14 12:00:14 by clu              ###   ########.fr        #
+#    Updated: 2024/11/14 16:46:43 by clu              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,29 +26,26 @@ ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus
 
 OBJECTS = $(SOURCES:.c=.o)
 BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
-BONUS = .bonus	# This is a hidden file that is created when the bonus rule is run
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	@echo "Linking library $(NAME)"
 	@ar rcs $(NAME) $(OBJECTS)
-	@ranlib $(NAME)
 
-bonus: $(BONUS)	# This rule creates the hidden file .bonus
+bonus: .bonus
 
-$(BONUS): $(BONUS_OBJECTS)	# This rule creates the bonus objects
-	# This is the message that is printed when the bonus rule is run
+.bonus: $(BONUS_OBJECTS)
 	@echo "Linking library $(NAME) with bonus objects"
-	@ar rcs $(NAME) $(BONUS_OBJECTS)	# This line creates the library with the bonus objects
-	@ranlib $(NAME)	# This line runs ranlib on the library to update the index
+	@ar rcs $(NAME) $(BONUS_OBJECTS)
+	@touch .bonus
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@echo "Cleaning object files"
-	rm -f $(OBJECTS) $(BONUS_OBJECTS) $(BONUS)	# This line removes the bonus objects and the hidden file .bonus
+	rm -f $(OBJECTS) $(BONUS_OBJECTS) .bonus
 
 fclean: clean
 	rm -f $(NAME)

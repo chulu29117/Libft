@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:01:59 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 16:46:11 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/13 15:07:59 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	dest_len;
 	size_t	src_len;
 	size_t	i;
-	printf("src: %s dest: %s\n", src, dest);
 	dest_len = ft_strlen(dest);
 	src_len = ft_strlen(src);
 	if (size <= dest_len)	// If size is less than or equal to dest_len, return (src_len + size)
@@ -41,11 +40,11 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 // // Test for ft_strlcat
 int	main(void)
 {
-	char	dest[] = "Hello ";
-	char	src[] = "Good Morning World";
+	char	dest[] = "Hello";
+	char	src[] = "Good";
 
 	printf("src: %s dest: %s\n", src, dest);
-	printf("Dest with size n: %ld\n", ft_strlcat(dest +2 , src, 10));
+	printf("Dest with size n: %ld\n", ft_strlcat(dest , src, 10));
 	printf("dest: %s\n", dest);
 	return (0);
 }

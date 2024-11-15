@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:26:52 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 17:03:06 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/13 15:15:16 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 // Test for ft_strnstr
 int	main(void)
 {
-	char	*str = "Hello, World!";
-	char	*to_find = "World";
+	char	*str = "asdadasdasd";
+	char	*to_find = "";
 	size_t	len = 13;
 
 	printf("String: %s\n", str);

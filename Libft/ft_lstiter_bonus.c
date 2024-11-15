@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:57:14 by clu               #+#    #+#             */
-/*   Updated: 2024/11/11 12:04:37 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/15 14:22:15 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (!lst || !f)
-		return ;
+		return (NULL);
 	while (lst)
 	{
 		f(lst -> content);

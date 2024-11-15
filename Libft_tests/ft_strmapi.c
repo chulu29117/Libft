@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:26:57 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 10:38:43 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/13 15:37:14 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 char	ft_strmapi_test(unsigned int i, char c)
 {
-	return ((c + i) % 128);	// Return the ASCII value of the char + i
+	return (c + 1 - i);	// Return the ASCII value of the char + i
 }
 
 int	main(void)
 {
-	char	*str = "ABCDEF";
+	char	*str = "`bdfh";
 	char	*new;
 
 	new = ft_strmapi(str, ft_strmapi_test);

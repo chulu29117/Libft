@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 15:28:21 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 17:30:25 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/13 15:30:23 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 void test_ft_strjoin1()
 {
     // Test case 1: Both strings are empty
-    const char *s1 = "";
-    const char *s2 = "";
+    const char *s1 = "checkin ";
+    const char *s2 = "event soon!";
     char *result_ft = ft_strjoin(s1, s2);
     char *result_std = strcat(strdup(s1), s2);
     printf("Test case 1:\nresult_ft = %s\nresult_std = %s\n", result_ft, result_std);
