@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 20:53:40 by clu               #+#    #+#             */
-/*   Updated: 2024/11/15 13:55:29 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/15 14:33:37 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -294,7 +294,7 @@ static size_t	count_words(char const *s, char c)
 		i++;
 	while (s[i] != '\0')
 	{
-		if (s[i] != c && (i == 0 || s[i - 1] == c))
+		if (s[i] != c && (i == 0 || s[i - 1] == c))		// Check if the character is not a delimiter and the previous character is a delimiter
 		{
 			words++;			// Increment word count when a non-delimiter character is found
 			while (s[i] && s[i] != c)
