@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:56:55 by clu               #+#    #+#             */
-/*   Updated: 2024/11/12 09:56:55 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/15 14:25:18 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ char	*ft_strdup(const char *s1);
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (lst)
-	{
-		del(lst -> content);	// Delete the content of the node
-		free(lst);				// Free the node memory
-	}
+	if (!lst || !del)	// If the list or the delete function is NULL,
+		return ;
+	del(lst -> content);	// Delete the content of the node
+	free(lst);				// Free the list
 }
 
 // Test for ft_lstdelone

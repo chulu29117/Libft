@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:56:55 by clu               #+#    #+#             */
-/*   Updated: 2024/11/15 14:22:19 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/15 14:24:52 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst || !del)
-		return (NULL);
+		return ;
 	del(lst -> content);
 	free(lst);
 }

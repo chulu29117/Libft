@@ -6,7 +6,7 @@
 /*   By: clu <clu@student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:56:45 by clu               #+#    #+#             */
-/*   Updated: 2024/11/15 14:22:34 by clu              ###   ########.fr       */
+/*   Updated: 2024/11/15 14:26:21 by clu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (!*lst)
 	{
 		*lst = new;
-		return (NULL);
+		return ;
 	}
 	last = ft_lstlast(*lst);
 	last -> next = new;
