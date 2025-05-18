@@ -1,0 +1,12 @@
+.vscode
+*.pdf
+/obj
+libft/libft.a
+libft/obj
+minishell
+msvalgrind
+githubhelp
+out*
+/42_minishell_tester
+/minishell_tester
+heredocstuff

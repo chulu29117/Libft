@@ -1,0 +1,53 @@
+IGNORE THESE TESTS
+- Compare Parsing
+24 - 30 (not handling \)
+
+- Parsing Hell
+1 & 5-9 & 13 & 76 & 122 & 124
+
+- Builtins
+1 & 27-33 & 87-90 & 122 & 136 & 140
+
+- Pipelines
+4, 5, 7, 9, 12, 13 (exit codes ok)
+
+
+Clu
+
+###
+1. echo '$'$'$'$'$'
+Not handling
+
+
+### 
+2. >| echo sure (not a syntax error????)
+
+>| (No Space): Noclobber Override Operator
+>| is a single redirection operator that overrides the noclobber option in bash:
+
+This is interpreted as:
+Execute echo sure as a command
+If the noclobber option is set (set -o noclobber), 
+override it and allow output redirection to overwrite files
+The error you see (Command 'sure' not found) occurs because bash is trying to execute sure as a program,
+with echo being the file to redirect to.
+
+###
+3. cat << hello
+$USER
+$NOVAR
+$HOME
+hello
+
+Issue fixed: can now also take single quoted delimiter --> don't expand.
+Only expand input when unquoted.
+
+$NOVAR
+should do nothing (eve suggests that in parsing if it doesn't find a value it can be replaced with spaces, that'll make the shell do nothing)
+###
+4. /bin/echo $'HOM'E$USER do double quotes
+Fixed
+
+
+
+Jules
